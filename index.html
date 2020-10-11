@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,700&subset=latin,Cyrillic" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link href="css/styleFirst.css" rel="stylesheet" />
+    <title>Moneycure</title>
+</head>
+
+<body>
+    <div class="pageWrap">
+        <div class="menu">
+            <ul class="menu__list">
+                <li class="menu__item">Ввод данных</li>
+                <li class="menu__item">Просмотр</li>
+                <li class="menu__item">Корректировка</li>
+                <li class="menu__item">Выход</li>
+            </ul>
+        </div>
+    
+        <div class="tabcontainer">
+            <div class="tabcontent first">
+                <div class="dataInput">
+                    <div class="dataInput__student">
+                        <div class="dataInput__initials">
+                            <div class="firstname">
+                                <form>
+                                    <label>Введите имя</label>
+                                    <input required type="text" id="namefield" />
+                                </form>
+                            </div>
+                            <div class="lastname">
+                                <form>
+                                    <label>Введите фамилию</label>
+                                    <input required type="text" id="lastnamefield" />
+                                </form>
+                            </div>
+                            <div class="patronymic">
+                                <form>
+                                    <label>Введите отчеcтво</label>
+                                    <input required type="text" id="patronymicfield" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="dataInput__studentInfo">
+                            <div class="dataInput_number">
+                                <form>
+                                    <label>Введите № зачетки</label>
+                                    <input required type="text" id="numberfield" />
+                                </form>
+                            </div>
+                            <div class="dataInput__university">
+                                <div data-dropBtn class="dataInput__university-course">
+                                    <p>Курс</p>
+                                    <div data-drop class="drop-course">
+                                        <ul>
+                                            <li data-item>1</li>
+                                            <li data-item>2</li>
+                                            <li data-item>3</li>
+                                            <li data-item>4</li>
+                                            <li data-item>5</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div data-dropBtn class="dataInput__university-fac">
+                                    <p>Факультет</p>
+                                    <div data-drop class="drop-faculty">
+                                        <ul>
+                                            <li data-item>ФКП</li>
+                                            <li data-item>ФИТУ</li>
+                                            <li data-item>ФРЭ</li>
+                                            <li data-item>ФКСиС</li>
+                                            <li data-item>ФИК</li>
+                                            <li data-item>ИЭФ</li>
+                                            <li data-item>ФДПиПО</li>
+                                            <li data-item>Военный Ф.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="discipline__wrapper">
+                        <div class="discipline">
+                            <div class="dicipline__code">
+                                <form class="code-form">
+                                    <label>Код дисциплины</label>
+                                    <input type="text" id="discipline-code" />
+                                </form>
+                            </div>
+                            <div class="discipline__clock">
+                                <form class="clocl-form">
+                                    <label>Часы</label>
+                                    <input type="text" id="clock" />
+                                </form>
+                            </div>
+                            <div data-dropBtn class="discipline__control">
+                                <label class="default">Форма контроля</label>
+                                <p>Форма</p>
+                                <div data-drop class="drop-control">
+                                    <ul>
+                                        <li data-item>Экзамен</li>
+                                        <li data-item>Зачет</li>
+                                        <li data-item>Дифф. Зачет</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="discipline__mark">
+                                <form class="mark-form">
+                                    <label>Оценка</label>
+                                    <input type="text" id="mark" />
+                                </form>
+                            </div>
+                            <div class="discipline__date">
+                                <form class="date-form">
+                                    <label>Дата</label>
+                                    <input type="text" id="date" />
+                                </form>
+                            </div>
+                            <div class="discipline__edit">
+                                <div class="discipline__edit-add">+</div>
+                                <div class="discipline__edit-remove">-</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonsubmit">
+                        <button type="submit" id="buttonfirst">Ввод</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="tabcontent second">
+                <div class="preview">
+                    <div class="generaldata">
+                        <div class="generaldata-number">Номер: <span>12345678</span></div>
+                        <div class="gerenaldata-mark">Общий средний балл: <span>9.9</span></div>
+                    </div>
+                    <div class="semesterchoice">
+                        <span>Семестр:</span>
+                        <div class="semesterchoice-btn">1</div>
+                        <div class="semesterchoice-btn">2</div>
+                        <div class="semesterchoice-btn">3</div>
+                        <div class="semesterchoice-btn">4</div>
+                        <div class="semesterchoice-btn">5</div>
+                        <div class="semesterchoice-btn">6</div>
+                        <div class="semesterchoice-btn">7</div>
+                        <div class="semesterchoice-btn">8</div>
+                    </div>
+                    <div class="aboutsemester">
+                        <div class="aboutsemester-mark">
+                            <p>Средний бал за семестр: <span>5.8</span></p>
+                        </div>
+                        <div class="aboutsemester-table">
+                            <table>
+                                <thead>
+                                    <tr class="table-head">
+                                        <th>Дисциплина</th>
+                                        <th>Часы</th>
+                                        <th>Ф-ма контроля</th>
+                                        <th>Оценка</th>
+                                        <th>Дата</th>
+                                        <th>Пересдач</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-active">
+                                        <td>Физика</td>
+                                        <td></td>
+                                        <td>Экзамен</td>
+                                        <td>
+                                            <span class="table-mark">7.5</span>
+                                        </td>
+                                        <td></td>
+                                        <td>11</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="tabcontent show three">
+            <div class="correct">
+                <div class="search__form">
+                    <form>
+                        <div class="search-img"></div>
+                        <input type="text" id="searchField" placeholder="№ студенческого" />
+                    </form>
+                </div>
+                <div class="search__result">
+                    <p>Список студентов:</p>
+                    <ol class="search__result-list">
+                        <li class="search__result-item">NoName NoLastname
+                            <div class="search-add"></div>
+                            <div class="search-edit"></div>
+                            <div class="search-remove"></div>
+                        </li>
+                        <li class="search__result-item">NoName NoLastname
+                            <div class="search-add"></div>
+                            <div class="search-edit"></div>
+                            <div class="search-remove"></div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            </div>
+    
+        </div>
+    </div>
+
+    <div class="popup">
+        <div class="logOut">
+            <div class="alert">
+                <p class="alert__message">Выйти из аккаунта?</p>
+                <div class="alert__buttons">
+                    <button type="submit" id="confirming">Да</button>
+                    <button type="submit" id="rejecting">Нет</button>
+                </div>
+                <div class="btn-close">❌</div>
+            </div> 
+        </div>
+    </div>  
+
+    <script src="js/scriptEvents"></script>
+</body>
+
+</html>

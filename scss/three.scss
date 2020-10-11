@@ -1,0 +1,102 @@
+.three {
+    font-size: 1.25rem;
+    display: none;
+
+    .correct {
+        display: flex;
+        flex-flow: column wrap;
+        margin: 15px 0 0 50px;
+
+        .search__form {
+            position: relative;
+
+            .search-img {
+                position: absolute;
+                display: block;
+                background: url(../icons/searchHover.png);
+                background-size: cover;
+                z-index: 100;
+                width: 45px;
+                height: 45px;
+                top: 21px;
+                left: 300px;
+                cursor: pointer;
+            }
+        }
+
+        .search__result {
+            margin: 35px 15px 0 0;
+
+            p {
+                font-size: 1.6rem;
+                padding: 0 0 5px 0;
+                max-width: 350px;
+                border-bottom: 1px solid black;
+            }
+
+            &-list {
+                margin: 20px 0 30px 0;
+
+                li {
+                    display: block;
+                    padding: 15px 0 21px 5px;
+                    max-width: 1100px;
+                    position: relative;
+                    border-bottom: 1px solid rgba(92, 92, 92, 0.912);
+                    height: 35px;
+                    font-size: 1.23rem;
+                    color: rgb(65, 65, 65);
+                    list-style: decimal;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: black;
+                    }
+
+                    .search-add,
+                    .search-edit,
+                    .search-remove {
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        z-index: 100;
+                        top: 6px;
+                    }
+
+                    .search-add {
+                        background: url(../icons/icon2.png);
+                        background-size: cover;
+                        left: 85%;
+                        &:hover {
+                            background: url(../icons/icon2Hover.png);
+                            background-size: cover;
+                            transition-duration: 0.3s;
+                        }
+                    }
+
+                    .search-edit {
+                        background: url(../icons/icon3.png);
+                        background-size: cover;
+                        left: 90%;
+                        &:hover {
+                            background: url(../icons/icon3Hover.png);
+                            background-size: cover;
+                            transition-duration: 0.3s;
+                        }
+                    }
+
+                    .search-remove {
+                        background: url(../icons/icon4.png);
+                        background-size: cover;
+                        left: 94.8%;
+                        &:hover {
+                            background: url(../icons/icon4Hover.png);
+                            background-size: cover;
+                            transition-duration: 0.3s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

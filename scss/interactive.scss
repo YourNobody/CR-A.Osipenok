@@ -1,0 +1,31 @@
+.bgc-active {
+    background-color: #E1BEE7;
+    border: 1px solid #7B1FA2 !important;
+    box-shadow: 0 0 5px #E1BEE7;
+
+    &:hover {
+        background-color: #fbe3ff !important;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.bgc-menu-active {
+    background-color: rgba(208, 208, 208, 0.645);
+    color: rgb(131, 0, 143) !important;
+
+    &:first-of-type {
+        border-radius: 5px 0 0 5px;
+    }
+
+    &:last-of-type {
+        border-radius: 0 5px 5px 0;
+    }
+}
+
