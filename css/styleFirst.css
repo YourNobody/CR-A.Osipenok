@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -131,13 +130,13 @@ h1, h2, h3, h4, h5, h6 {
       height: 45px;
       border: 1px solid rgba(169, 169, 169, 0.844);
       border-radius: 5px;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       padding: 0 0 0 15px;
       color: #434343; }
       .tabcontent form input:focus {
         border: 1px solid #9C27B0;
-        -webkit-box-shadow: 0 0 5px  #E1BEE7;
-        box-shadow: 0 0 5px  #E1BEE7; }
+        -webkit-box-shadow: 0 0 5px #E1BEE7;
+        box-shadow: 0 0 5px #E1BEE7; }
 
 .first {
   display: none; }
@@ -148,7 +147,11 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-flow: column wrap;
-    flex-flow: column wrap; }
+    flex-flow: column wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%; }
     .first .dataInput__student {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -184,77 +187,26 @@ h1, h2, h3, h4, h5, h6 {
       -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
       flex-flow: row nowrap;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      width: 290px;
-      margin: 42px 0 0 0;
-      font-size: 1.2rem;
-      color: #5c5c5c; }
-      .first .dataInput__university-course, .first .dataInput__university-fac {
-        width: 110px;
+      margin: 42px 0 0 0; }
+      .first .dataInput__university input {
+        width: 120px;
         height: 45px;
         border: 1px solid rgba(169, 169, 169, 0.844);
-        border-radius: 12px;
-        text-align: center;
-        position: relative;
-        background-color: white;
-        cursor: pointer; }
-        .first .dataInput__university-course::after, .first .dataInput__university-fac::after {
-          content: '➤';
-          display: block;
-          position: absolute;
-          -webkit-transform: scale(0.7) rotateZ(90deg);
-          -ms-transform: scale(0.7) rotate(90deg);
-          transform: scale(0.7) rotateZ(90deg);
-          top: 33%;
-          right: 5%; }
-        .first .dataInput__university-course:hover, .first .dataInput__university-fac:hover {
-          background-color: rgba(208, 208, 208, 0.645); }
-      .first .dataInput__university-course {
-        padding: 11px 2px 0 0; }
-      .first .dataInput__university-fac {
-        width: 160px;
-        padding: 11px 3px 0 0; }
-      .first .dataInput__university .drop-course,
-      .first .dataInput__university .drop-faculty {
-        display: none;
+        border-radius: 5px;
+        padding: 0 0 0 15px; }
+      .first .dataInput__university label {
         position: absolute;
-        height: auto;
-        width: 120px;
-        background-color: white;
-        border: 1px solid rgba(169, 169, 169, 0.844);
-        z-index: 100;
-        top: 110%;
-        -webkit-box-shadow: 0 11px 20px #919191;
-        box-shadow: 0 11px 20px #919191; }
-        .first .dataInput__university .drop-course ul,
-        .first .dataInput__university .drop-faculty ul {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-          -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-          justify-content: space-between;
-          height: 100%; }
-          .first .dataInput__university .drop-course ul li,
-          .first .dataInput__university .drop-faculty ul li {
-            padding: 8px 0;
-            height: 30%;
-            border-bottom: 1px solid rgba(169, 169, 169, 0.844); }
-            .first .dataInput__university .drop-course ul li:last-of-type,
-            .first .dataInput__university .drop-faculty ul li:last-of-type {
-              border-bottom: none; }
-            .first .dataInput__university .drop-course ul li:hover,
-            .first .dataInput__university .drop-faculty ul li:hover {
-              background-color: rgba(208, 208, 208, 0.645); }
-      .first .dataInput__university .drop-faculty {
-        width: 180px;
-        height: auto; }
+        font-size: 1rem;
+        color: rgba(111, 111, 111, 0.912);
+        top: -24px;
+        left: 0px; }
+      .first .dataInput__university-course {
+        position: relative;
+        margin: 0 20px 0 0; }
+      .first .dataInput__university-fac {
+        position: relative; }
+        .first .dataInput__university-fac input {
+          width: 160px; }
   .first .discipline {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -274,72 +226,17 @@ h1, h2, h3, h4, h5, h6 {
       height: 45px;
       border: 1px solid rgba(169, 169, 169, 0.844);
       border-radius: 5px;
-      font-size: 1.3rem;
       padding: 0 0 0 15px; }
     .first .discipline__date input {
       width: 200px; }
     .first .discipline__control {
-      width: 124px;
-      height: 45px;
-      border: 1px solid rgba(169, 169, 169, 0.844);
-      border-radius: 5px;
-      text-align: center;
-      padding: 13px 7px 0 0;
-      position: relative;
-      background-color: white;
-      cursor: pointer; }
-      .first .discipline__control::after {
-        content: '➤';
-        font-size: 1.2rem;
-        display: block;
+      position: relative; }
+      .first .discipline__control label {
         position: absolute;
-        -webkit-transform: scale(0.8) rotateZ(90deg);
-        -ms-transform: scale(0.8) rotate(90deg);
-        transform: scale(0.8) rotateZ(90deg);
-        top: 35%;
-        right: 7%; }
-      .first .discipline__control .default {
-        position: absolute;
-        top: -24px;
         font-size: 1rem;
-        left: 0; }
-      .first .discipline__control p {
-        font-size: 1.1rem;
-        padding-top: 1px; }
-      .first .discipline__control:hover {
-        background-color: rgba(208, 208, 208, 0.645); }
-      .first .discipline__control .drop-control {
-        display: none;
-        position: absolute;
-        height: auto;
-        width: 120px;
-        background-color: white;
-        border: 1px solid rgba(169, 169, 169, 0.844);
-        z-index: 100;
-        top: 110%;
-        font-size: 1.2rem;
-        -webkit-box-shadow: 0 11px 20px #919191;
-        box-shadow: 0 11px 20px #919191; }
-        .first .discipline__control .drop-control ul {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-          -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-          justify-content: space-between;
-          height: 100%; }
-          .first .discipline__control .drop-control ul li {
-            padding: 8px 0;
-            height: 30%;
-            border-bottom: 1px solid rgba(169, 169, 169, 0.844); }
-            .first .discipline__control .drop-control ul li:last-of-type {
-              border-bottom: none; }
-            .first .discipline__control .drop-control ul li:hover {
-              background-color: rgba(208, 208, 208, 0.645); }
+        color: rgba(111, 111, 111, 0.912);
+        top: -24px;
+        left: 0px; }
     .first .discipline__edit {
       display: -webkit-box;
       display: -ms-flexbox;

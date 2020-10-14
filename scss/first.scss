@@ -1,8 +1,11 @@
 .first {
     display: none;
+
     .dataInput {
         display: flex;
         flex-flow: column wrap;
+        justify-content: space-between;
+        width: 100%;
 
         &__student {
             display: flex;
@@ -23,89 +26,41 @@
         }
 
         &__university {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
-            width: 290px;
-            margin: 42px 0 0 0;
-            font-size: 1.2rem;
-            color: rgb(92, 92, 92);
-
-            &-course,
-            &-fac {
-                width: 110px;
+            input {
+                width: 120px;
                 height: 45px;
                 border: 1px solid rgba(169, 169, 169, 0.844);
-                border-radius: 12px;
-                text-align: center;
-                position: relative;
-                background-color: white;
-                cursor: pointer;
+                border-radius: 5px;
+                padding: 0 0 0 15px;
+            }
 
-                &::after {
-                    content: '➤';
-                    display: block;
-                    position: absolute;
-                    transform: scale(.7) rotateZ(90deg);
-                    top: 33%;
-                    right: 5%;
-                }
+            display: flex;
+            flex-flow: row nowrap;
+            margin: 42px 0 0 0;
 
-                &:hover {
-                    background-color: rgba(208, 208, 208, 0.645);
-                }
+            label {
+                position: absolute;
+                font-size: 1rem;
+                color: rgba(111, 111, 111, 0.912);
+                top: -24px;
+                left: 0px;
             }
 
             &-course {
-                padding: 11px 2px 0 0;
+                position: relative;
+                margin: 0 20px 0 0;
             }
 
             &-fac {
-                width: 160px;
-                padding: 11px 3px 0 0;
-            }
-
-            .drop-course,
-            .drop-faculty {
-                display: none;
-                position: absolute;
-                height: auto;
-                width: 120px;
-                background-color: rgb(255, 255, 255);
-                border: 1px solid rgba(169, 169, 169, 0.844);
-                z-index: 100;
-                top: 110%;
-                box-shadow: 0 11px 20px rgb(145, 145, 145);
-
-                ul {
-                    display: flex;
-                    flex-flow: column nowrap;
-                    justify-content: space-between;
-                    height: 100%;
-
-                    li {
-                        padding: 8px 0;
-                        height: 30%;
-                        border-bottom: 1px solid rgba(169, 169, 169, 0.844);
-
-                        &:last-of-type {
-                            border-bottom: none;
-                        }
-
-                        &:hover {
-                            background-color: rgba(208, 208, 208, 0.645);
-                        }
-                    }
+                position: relative;
+                input {
+                    width: 160px;
                 }
             }
-
-            .drop-faculty {
-                width: 180px;
-                height: auto;
-            }
         }
-
     }
+
+
 
     .discipline {
         display: flex;
@@ -119,7 +74,6 @@
             height: 45px;
             border: 1px solid rgba(169, 169, 169, 0.844);
             border-radius: 5px;
-            font-size: 1.3rem;
             padding: 0 0 0 15px;
         }
 
@@ -130,75 +84,14 @@
         }
 
         &__control {
-            width: 124px;
-            height: 45px;
-            border: 1px solid rgba(169, 169, 169, 0.844);
-            border-radius: 5px;
-            text-align: center;
-            padding: 13px 7px 0 0;
             position: relative;
-            background-color: white;
-            cursor: pointer;
 
-            &::after {
-                content: '➤';
-                font-size: 1.2rem;
-                display: block;
+            label {
                 position: absolute;
-                transform: scale(.8) rotateZ(90deg);
-                top: 35%;
-                right: 7%;
-            }
-
-            .default {
-                position: absolute;
-                top: -24px;
                 font-size: 1rem;
-                left: 0;
-            }
-
-            p {
-                font-size: 1.1rem;
-                padding-top: 1px;
-            }
-
-
-            &:hover {
-                background-color: rgba(208, 208, 208, 0.645)
-            }
-
-            .drop-control {
-                display: none;
-                position: absolute;
-                height: auto;
-                width: 120px;
-                background-color: rgb(255, 255, 255);
-                border: 1px solid rgba(169, 169, 169, 0.844);
-                z-index: 100;
-                top: 110%;
-                font-size: 1.2rem;
-                box-shadow: 0 11px 20px rgb(145, 145, 145);
-
-                ul {
-                    display: flex;
-                    flex-flow: column nowrap;
-                    justify-content: space-between;
-                    height: 100%;
-
-                    li {
-                        padding: 8px 0;
-                        height: 30%;
-                        border-bottom: 1px solid rgba(169, 169, 169, 0.844);
-
-                        &:last-of-type {
-                            border-bottom: none;
-                        }
-
-                        &:hover {
-                            background-color: rgba(208, 208, 208, 0.645);
-                        }
-                    }
-                }
+                color: rgba(111, 111, 111, 0.912);
+                top: -24px;
+                left: 0px;
             }
         }
 
