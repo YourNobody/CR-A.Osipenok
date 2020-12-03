@@ -1,0 +1,87 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+.log__in {
+    max-width: 340px;
+}
+
+.log__in h1 {
+    font-size: 40px;
+    text-align: center;
+    margin: 70px 0 20px 0;
+}
+
+.log__in > div {
+    max-height: 25px;
+}
+
+.password {
+    top: 70px;
+}
+
+.log__in label {
+    position: relative;
+    top: 41px;
+    left: 5px;
+    font-size: 20px;
+    color: rgb(75, 75, 75);
+    transition: all 0.2s ease-in;
+}
+
+.log__in input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid grey;
+    padding: 3px 7px;
+    font-size: 20px;
+    margin: 8px 0; 
+    color: rgb(75, 75, 75);
+    transition: all 0.2s ease-in;
+}
+
+.log__in input:focus {
+    border-bottom: 1px solid #57b846b8;
+}
+
+.log__in button {
+    width: 100%;
+    height: 40px;
+    background-color: #57b846;
+    color: white;
+    border-radius: 30px;
+    font-size: 18px;
+    margin: 35px 0 0 0;
+    box-shadow: 0 2px 20px #57b846b8;
+    transition: all 0.2s ease-in;
+}
+
+.log__in button:hover {
+    background-color:rgb(55, 55, 55);
+    box-shadow: 0 2px 20px rgb(55, 55, 55);
+}
+
+.forget {
+    margin: 50px 0 15px 0;
+}
+
+.log__in p {
+    font-size: 20px;
+    color: rgb(75, 75, 75);
+}
+
+.log__in a {
+    text-decoration: none;
+    color: #57b846;
+    transition: all 0.2s ease-in;
+}
+
+.log__in a:hover {
+    color: rgb(39, 39, 39);
+}
+

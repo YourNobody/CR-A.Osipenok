@@ -1,0 +1,148 @@
+.main {
+    width: 1050px;
+    min-height: 560px;
+    box-shadow: 0 0 30px rgba(53, 53, 53, 0.529);
+    margin: 0 0 45px 37px;
+    padding: 20px;
+}
+
+.title {
+    font-size: 30px;
+    padding: 0 0 0 20px;
+}
+
+.divider {
+    width: 300px;
+    height: 1px;
+    margin: 10px 0;
+    background-color: black;
+}
+
+.faculties__list li {
+    position: relative;
+    padding: 15px 0 15px 15px;
+    font-size: 22px;
+}
+
+.faculties__list li:before {
+    content: '›';
+    position: absolute;
+    left: 3px;
+}
+
+
+.mypage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px;
+    background-color: rgba(0, 0, 0, 0.426);
+    transition: all 1s ease-in-out 0s;
+    transform: translate(100%);
+}
+
+.mypage__dialog {
+    min-width: 550px;
+    min-height: 400px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    transition: all 1s ease-in-out 0s;
+    transform-origin: right bottom;
+    transform: rotate3d(250, -130, 50, 90deg);
+    opacity: 0;
+}
+
+.mypage__photo {
+    width: 170px;
+    height: 170px;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.mypage__photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mypage__initals {
+    margin: 20px 45px 20px 0px;
+}
+
+.mypage__initals p {
+    font-size: 22px;
+    padding: 8px 0;
+}
+
+.mypage__group {
+    margin: 15px 0 0 0;
+}
+
+.mypage__buttons {
+    margin: 20px 0 20px 25px;
+}
+
+#change__photo {
+    margin: 10px 0 0 0;
+}
+
+.table {
+    width: 100%;
+    margin: 15px 0 0 0;
+}
+
+table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse; 
+}
+
+th {
+    padding: 12px 10px;
+    font-size: 20px; 
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: rgb(131, 243, 255, 0.5);
+}
+td {
+    font-size: 17px;
+    padding: 10;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+td:nth-of-type(n+2) {
+    text-align: center;
+}
+
+@keyframes page {
+    0% {
+        transform: rotate3d(250, -130, 50, 90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes page_bg {
+    0% {
+        transform: translate(100%);
+    }
+    100% {
+        transform: translate(0%);
+    }
+}
+
+
+
+
