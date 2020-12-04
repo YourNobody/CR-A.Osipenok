@@ -1,0 +1,70 @@
+.main {
+    width: 1050px;
+    min-height: 560px;
+    box-shadow: 0 0 30px rgba(53, 53, 53, 0.529);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 0 0 0 0; 
+    transition: all 0.3s ease-out 0s;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title h1{
+    font-size: 30px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    margin: 10px 0;
+    background-color: black;
+}
+
+.faculties__list li {
+    position: relative;
+    padding: 15px 0 15px 15px;
+    font-size: 22px;
+}
+
+.faculties__list li:before {
+    content: '›';
+    position: absolute;
+    left: 3px;
+}
+
+table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse; 
+}
+
+th {
+    padding: 12px 10px;
+    font-size: 20px; 
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: rgb(131, 243, 255, 0.5);
+}
+td {
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+td:nth-of-type(n+2) {
+    text-align: center;
+}
+
+[data-to="study-plan"], [data-to="show-in-window"] {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+
+
