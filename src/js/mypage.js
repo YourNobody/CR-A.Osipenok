@@ -30,7 +30,6 @@ function closeMyPage() {
 
     mypage.onanimationend = () => toogleMyPage(mypage)
 }
-
 function toogleMyPage(elem) {
     elem.classList.toggle('hide')
 }

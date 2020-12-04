@@ -6,7 +6,6 @@ const listItems = document.querySelectorAll('.aside__list li'),
       sidebarTrigger = document.querySelector('.show__aside'),
       sidebar = document.querySelector('.aside'),
       sidebarList = sidebar.querySelector('.aside__list')
-
 listItems.forEach(li => {
     li.addEventListener('click', (e) => contentToggle(e, tabs))
 })
@@ -14,7 +13,6 @@ listItems.forEach(li => {
 function contentToggle(e, tabs) {
     e.target.style.backgroundColor = 'yellow'
     e.target.style.color = 'black'
-    toogleSideBar()
     let { to } = e.target.dataset
     tabs.forEach(tab => {
         if (tab.id === to) {
@@ -50,4 +48,3 @@ function toogleSideBar() {
         sidebar.setAttribute('data-mode', 'hide')
     }  
 }
-

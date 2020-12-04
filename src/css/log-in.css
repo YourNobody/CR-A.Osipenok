@@ -66,6 +66,7 @@
     box-shadow: 0 2px 20px rgb(55, 55, 55);
 }
 
+
 .log__in button:active {
     transition: all 0s;
     transform: scale(0.95);
