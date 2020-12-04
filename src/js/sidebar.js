@@ -6,6 +6,7 @@ const listItems = document.querySelectorAll('.aside__list li'),
       sidebarTrigger = document.querySelector('.show__aside'),
       sidebar = document.querySelector('.aside'),
       sidebarList = sidebar.querySelector('.aside__list')
+      
 listItems.forEach(li => {
     li.addEventListener('click', (e) => contentToggle(e, tabs))
 })
