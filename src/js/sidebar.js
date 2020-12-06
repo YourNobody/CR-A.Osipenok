@@ -6,6 +6,14 @@ const listItems = document.querySelectorAll('.aside__list li'),
       sidebarTrigger = document.querySelector('.show__aside'),
       sidebar = document.querySelector('.aside'),
       sidebarList = sidebar.querySelector('.aside__list')
+
+const allGroupBtns = document.querySelectorAll('.groups__btn')
+const btnsBlockForTables = document.querySelector('.tb__buttons')
+const studTable = document.querySelector('.students .table')
+const studentsBlock = document.querySelector('.students')
+const loader = document.createElement('div')
+
+allGroupBtns.forEach(item => item.addEventListener('click', () => showStudTable()))
       
 listItems.forEach(li => {
     li.addEventListener('click', (e) => contentToggle(e, tabs))
@@ -24,6 +32,7 @@ function contentToggle(e, tabs) {
     tabs.forEach(tab => {
         if (tab.id === to) {
             tab.classList.remove('hide')
+
         } else {
             tab.classList.add('hide')
         }
@@ -54,4 +63,11 @@ function toogleSideBar() {
         sidebarList.ontransitionend = () => sidebarList.classList.add('hide')
         sidebar.setAttribute('data-mode', 'hide')
     }  
+}
+
+function showStudTable() { 
+    btnsBlockForTables.classList.add('hide')
+    studentsBlock.append(loader)
+    studTable.classList.remove('hide')
+    studentsBlock.classList.remove('hide')
 }

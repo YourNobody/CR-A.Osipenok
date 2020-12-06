@@ -1,13 +1,12 @@
 <?php 
 
-$server = 'localhost';
+    $server = 'localhost';
     $name = 'kp';
     $pass = 'kp';
     $db = 'kursach';
 
     $n_gr = $_POST['n_gr'];
-    var_dump($n_gr);
-
+    
     $mysql = new mysqli($server, $name, $pass, $db); 
 
     $smallsql = 'SELECT N_zachetki, concat_ws(\' \', st_l_name, st_f_name, st_patronymic) as full_fio, 
@@ -31,5 +30,7 @@ $server = 'localhost';
         if ($row['number_group'] != $n_gr) continue;
         echo "<p>$row[N_zachetki] $row[full_fio] $row[number_group]</p>";
     }
+
+    $mysql->close();
 
 ?>

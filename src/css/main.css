@@ -121,5 +121,17 @@ td {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.481);
 }
 
+.groups__btn {
+    background-color: transparent;
+    font-size: 17px;
+    color: rgba(0,0,0,0.8);
+    transition: all 0.15s;
+}
+
+.groups__btn:hover {
+    color: black;
+    border-bottom: 1px solid black;
+}
+
 
 

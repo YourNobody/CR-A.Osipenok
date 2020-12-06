@@ -29,6 +29,7 @@
             display: flex;
             justify-content: space-between;
         }
+
         .hide {
             display: none;
         }
@@ -47,10 +48,10 @@
                     <ul class="admin__setts hide">
                         <li data-to="students">Изменить</li>
                         <li data-to="vedomost">Создать ведомость</li>
-                    </div>
+                </div>
                 </ul>
                 <div class="personal__initials">
-                    Артем Осипенок
+                Артем Осипенок
                 </div>
                 <div class="personal__photo">
                     <img src="img/me.png" />
@@ -70,6 +71,26 @@
             <div class="show__aside">&#10095;</div>
         </aside>
         <main class="main">
+        <div class="specialities" id="specialities">
+                <h1 class="title">Специальности</h1>
+                <div class="divider"></div>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Специальность</th>
+                                <th>Факультет</th>
+                                <th>Учебный план</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                                require "tmpsPHP/_specialnost.php"
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </main>
     </div>
     <footer class="footer">

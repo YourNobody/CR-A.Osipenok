@@ -1,7 +1,3 @@
-<?php 
-    $access = 'admin'
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +25,7 @@
             display: flex;
             justify-content: space-between;
         }
+
         .hide {
             display: none;
         }
@@ -47,10 +44,10 @@
                     <ul class="admin__setts hide">
                         <li data-to="students">Изменить</li>
                         <li data-to="vedomost">Создать ведомость</li>
-                    </div>
+                </div>
                 </ul>
                 <div class="personal__initials">
-                    Артем Осипенок
+                Артем Осипенок
                 </div>
                 <div class="personal__photo">
                     <img src="img/me.png" />
@@ -70,6 +67,33 @@
             <div class="show__aside">&#10095;</div>
         </aside>
         <main class="main">
+        <div class="groups" id="groups">
+                <h1 class="title">Группы</h1>
+                <div class="divider"></div>
+                <div class="choose__course">
+                    <label>1</label><input class="radio" type="radio" id="choose__course_radio" name="choose__course_radio"/>
+                    <label>2</label><input class="radio" type="radio" id="choose__course_radio" name="choose__course_radio"/>
+                    <label>3</label><input class="radio" type="radio" id="choose__course_radio" name="choose__course_radio"/>
+                    <label>4</label><input class="radio" type="radio" id="choose__course_radio" name="choose__course_radio"/>
+                </div>
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Номер группы</th>
+                                <th>Специальность</th>
+                                <th>Факультет</th>
+                                <th>Список студентов</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                                require "tmpsPHP/_groups.php"
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </main>
     </div>
     <footer class="footer">

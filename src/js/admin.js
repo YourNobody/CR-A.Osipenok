@@ -36,7 +36,8 @@ function showChangeForm(e) {
         if (tr == document.body) break;
     }
     const studFIO = [...tr.children].find(item => item.id === 'stud__fio')
-    const grupNUM = [...tr.children].find(item => item.id === 'grup__num')
+    const grupNUM = [...tr.children].find(item => item.id === 'number__group')
+    const numZach = [...tr.children].find(item => item.id === 'number__zach')
 
     if (aim === 'adding') {
         document.querySelectorAll('main > div').forEach(item => {
@@ -49,9 +50,8 @@ function showChangeForm(e) {
             if (item.id === "deleting__info") {
                 item.classList.remove('hide')
                 document.querySelector('#deleting__info form').innerHTML = 
-                `<h2 for="deletefio">Вы действительно желаете удалить студета <span style="color: green; font-size: 20px;">${studFIO.innerText} </span>из группы <span style="color: green; font-size: 20px;">${grupNUM.innerText}</span>?</h2>
-                    <input id="deletefio" name="deletefio" value="${studFIO.innerText}" type="hidden"/>
-                    <input id="deletegroup" name="deletegroup" value="${grupNUM.innerText}" type="hidden"/>
+                `<h2 for="deletefio">Вы действительно желаете удалить студета <span style="color: green; font-size: 20px;">${studFIO.innerText} </span>из группы <span style="color: green; font-size: 20px;">${grupNUM.innerText}</span> с <span style="color: green; font-size: 20px;">${numZach.innerText}</span>?</h2>
+                    <input id="n__zach" name="n__zach" value="${numZach.innerText}" type="hidden"/>
                 <button type="submit">Удалить</button>`
             }
         })
@@ -83,83 +83,3 @@ function showChangeForm(e) {
 
 
 
-//<div class="table">
-//                     <table>
-//                         <thead>
-//                             <tr>
-//                                 <th>Номер зачетки</th>
-//                                 <th>ФИО студента</th>
-//                                 <th>Курс</th>
-//                                 <th>Группа</th>
-//                                 <th>Специальность</th>
-//                                 <th>Факультет</th>
-//                                 <?php 
-//                                     if ($access === 'admin') echo "<th>Действия</th>";
-//                                 ?>
-//                             </tr>
-//                         </thead>
-//                         <tbody>
-//                             <?php
-//                                 if ($access === 'admin') {
-//                                     while ($row = mysqli_fetch_array($result)) {
-//                                         echo "<tr>
-//                                         <td>$row[N_zachetki]</td>
-//                                         <td id=\"stud__fio\">$row[full_fio]</td>
-//                                         <td>$row[kurs]</td>
-//                                         <td id=\"name__num\">$row[number_group]</td> 
-//                                         <td>$row[name_spec]</td>
-//                                         <td>$row[name_fac]</td>
-//                                         <td>
-//                                             <div data-aim=\"changing\" class=\"ch__img\"><img src=\"icons/selection.svg\" data-aim=\"changing\"></div>
-//                                             <div data-aim=\"deleting\" class=\"ch__img\"><img src=\"icons/delete.svg\" data-aim=\"deleting\"></div>
-//                                         </td>
-//                                     </tr>";
-//                                     }
-//                                 } else {
-//                                     while ($row = mysqli_fetch_array($result)) {
-//                                         echo "<tr>
-//                                         <td id=\"stud__fio\">$row[st_f_name] $row[st_l_name] $row[st_patronymic]</td>
-//                                         <td id=\"grup__num\">$row[id_group]</td>
-//                                         </tr>"; 
-//                                     }
-//                                 }
-//                                 $mysql->close();
-//                             ?>
-//                         </tbody>
-//                     </table>
-//                 </div>                                <th>Факультет</th>
-//                                 <?php 
-//                                     if ($access === 'admin') echo "<th>Действия</th>";
-//                                 ?>
-//                             </tr>
-//                         </thead>
-//                         <tbody>
-//                             <?php
-//                                 if ($access === 'admin') {
-//                                     while ($row = mysqli_fetch_array($result)) {
-//                                         echo "<tr>
-//                                         <td>$row[N_zachetki]</td>
-//                                         <td id=\"stud__fio\">$row[full_fio]</td>
-//                                         <td>$row[kurs]</td>
-//                                         <td id=\"name__num\">$row[number_group]</td> 
-//                                         <td>$row[name_spec]</td>
-//                                         <td>$row[name_fac]</td>
-//                                         <td>
-//                                             <div data-aim=\"changing\" class=\"ch__img\"><img src=\"icons/selection.svg\" data-aim=\"changing\"></div>
-//                                             <div data-aim=\"deleting\" class=\"ch__img\"><img src=\"icons/delete.svg\" data-aim=\"deleting\"></div>
-//                                         </td>
-//                                     </tr>";
-//                                     }
-//                                 } else {
-//                                     while ($row = mysqli_fetch_array($result)) {
-//                                         echo "<tr>
-//                                         <td id=\"stud__fio\">$row[st_f_name] $row[st_l_name] $row[st_patronymic]</td>
-//                                         <td id=\"grup__num\">$row[id_group]</td>
-//                                         </tr>"; 
-//                                     }
-//                                 }
-//                                 $mysql->close();
-//                             ?>
-//                         </tbody>
-//                     </table>
-//                 </div>
