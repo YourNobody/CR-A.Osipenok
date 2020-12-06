@@ -1,8 +1,8 @@
 <?php 
 
     $server = 'localhost';
-    $name = 'root';
-    $pass = 'root';
+    $name = 'kp';
+    $pass = 'kp';
     $db = 'kursach';
 
     $mysql = new mysqli($server, $name, $pass, $db); 

@@ -66,3 +66,50 @@ header .container {
     object-fit: cover;
 }
 
+.admin {
+    position: relative;
+    margin: 0 20px 0 0;
+}
+
+.admin__trig {
+    width: 60px;
+    height: 100%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+}
+
+.admin__trig:hover {
+    background-color:  rgb(18, 18, 199);
+    box-shadow: inset 0 0px 12px rgba(0, 0, 0, 0.535);  
+    color: rgb(255, 255, 173);
+}
+
+.admin__setts {
+    position: absolute;
+    right: 0;
+    background-color:white;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease-in;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.446);
+}
+
+.admin__setts li {
+    min-width: 250px;
+    padding: 10px 20px;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.admin__setts li:hover {
+    background-color:rgba(0, 0, 0, 0.131);
+}
+
+.admin__setts li:active {
+    background-color:rgba(0, 0, 0, 0.227);
+}
+
+

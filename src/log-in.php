@@ -11,7 +11,7 @@
 <body>
     <div class="wrapper">
         <div class="log__in">
-            <form class="form">
+            <form class="form" method="post">
                 <h1>Welcome</h1>
                 <div class="username">
                     <label for="username">Username</label>

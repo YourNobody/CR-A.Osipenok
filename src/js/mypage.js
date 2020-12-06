@@ -10,7 +10,7 @@ mypage.addEventListener('click', (e) => {
 })
 
 function showMyPage() {
-    toogleMyPage(mypage)
+    toggleElem(mypage)
     mypage.style.animation = 'page_bg'
     mypage.style.animationDuration = '0.5s'
 
@@ -28,8 +28,9 @@ function closeMyPage() {
     mypageDialog.style.transform = 'rotate3d(250, -130, 50, 90deg)'
     mypageDialog.style.opacity = '0'
 
-    mypage.onanimationend = () => toogleMyPage(mypage)
+    mypage.onanimationend = () => toggleElem(mypage)
 }
-function toogleMyPage(elem) {
+function toggleElem(elem) {
     elem.classList.toggle('hide')
 }
+

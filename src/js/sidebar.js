@@ -12,8 +12,14 @@ listItems.forEach(li => {
 })
 
 function contentToggle(e, tabs) {
-    e.target.style.backgroundColor = 'yellow'
-    e.target.style.color = 'black'
+    listItems.forEach(item => {
+        item.style.backgroundColor = ''
+        item.style.color = ''
+        if (item = e.target) {
+            item.style.backgroundColor = 'yellow'
+            item.style.color = 'black'
+        }
+    })
     let { to } = e.target.dataset
     tabs.forEach(tab => {
         if (tab.id === to) {

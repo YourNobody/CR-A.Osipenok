@@ -1,14 +1,20 @@
 <?php 
 
     $server = 'localhost';  
-    $name = 'root';
-    $pass = 'root';
+    $name = 'kp';
+    $pass = 'kp';
     $db = 'kursach';
 
     $mysql = new mysqli($server, $name, $pass, $db); 
 
     
-    $sql = 'SELECT number_group, name_spec, name_fac FROM grups, specialnost, faculty ORDER BY number_group';
+    $sql = 'SELECT number_group, name_spec, name_fac 
+            FROM grups 
+            INNER JOIN specialnost ON grups.id_spec=specialnost.id_spec
+            INNER JOIN student ON grups.id_group=student.id_group
+            INNER JOIN faculty ON student.id_fac=faculty.id_fac
+            GROUP BY number_group
+            ';
 
     $result = mysqli_query($mysql, $sql);
 
