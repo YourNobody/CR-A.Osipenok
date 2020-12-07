@@ -1,5 +1,4 @@
 <?php 
-
     $server = 'localhost';
     $name = 'kp';
     $pass = 'kp';
@@ -34,20 +33,20 @@
                 <th>Группа</th>
                 <th>Специальность</th>
                 <th>Факультет</th>";
-                if ($access === 'admin') echo "<th>Действия</th>";
+                if ($_SESSION['access'] === 'admin') echo "<th>Действия</th>";
         echo "</tr>
         </thead>
         <tbody>";
-                if ($access === 'admin') {
+                if ($_SESSION['access'] === 'admin') {
                     while ($row = mysqli_fetch_array($result)) {
                         if ($row['number_group'] != $n_gr) continue;
                         echo "<tr>
                         <td id=\"number__zach\">$row[N_zachetki]</td>
                         <td id=\"stud__fio\">$row[full_fio]</td>
-                        <td>$row[kurs]</td>
+                        <td id=\"curs__num\">$row[kurs]</td>
                         <td id=\"number__group\">$row[number_group]</td> 
-                        <td>$row[name_spec]</td>
-                        <td>$row[name_fac]</td>
+                        <td id=\"name__spec\">$row[name_spec]</td>
+                        <td id=\"name__fac\">$row[name_fac]</td>
                         <td>
                             <div data-aim=\"changing\" class=\"ch__img\"><img src=\"icons/selection.svg\" data-aim=\"changing\"></div>
                             <div data-aim=\"deleting\" class=\"ch__img\"><img src=\"icons/delete.svg\" data-aim=\"deleting\"></div>

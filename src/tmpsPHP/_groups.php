@@ -23,14 +23,25 @@
         exit();
     }
 
-    while ($row = mysqli_fetch_array($result)) {
-        echo "<tr>
-            <td>$row[number_group]</td>
-            <td>$row[name_spec]</td>
-            <td>$row[name_fac]</td>
-            <td data-to=\"show-in-window\">Открыть</td>
-        </tr>
-        ";
+    if ($_SESSION['access'] === 'admin' || $_SESSION['access'] === 'student') {
+        while ($row = mysqli_fetch_array($result)) {
+            echo "<tr>
+                <td>$row[number_group]</td>
+                <td>$row[name_spec]</td>
+                <td>$row[name_fac]</td>
+                <td data-to=\"show-in-window\">Открыть</td>
+            </tr>
+            ";
+        }
+    } else {
+        while ($row = mysqli_fetch_array($result)) {
+            echo "<tr>
+                <td>$row[number_group]</td>
+                <td>$row[name_spec]</td>
+                <td>$row[name_fac]</td>
+            </tr>
+            ";
+        }
     }
 
     $mysql->close();

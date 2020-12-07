@@ -1,5 +1,5 @@
 <?php 
-    $access = 'admin'
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -39,9 +39,9 @@
 <body>
     <header class="header">
         <div class="container">
-            <a class="log__out" href="log-in.php">
-                Log out
-            </a>
+        <?php 
+                require "tmpsPHP/_log-btn.php";
+            ?>
             <div class="personal">
                 <div class="admin">
                     <div class="admin__trig">&#9660;</div>
@@ -51,7 +51,7 @@
                 </div>
                 </ul>
                 <div class="personal__initials">
-                Артем Осипенок
+                    Артем Осипенок
                 </div>
                 <div class="personal__photo">
                     <img src="img/me.png" />
@@ -62,6 +62,7 @@
     <div class="content">
         <aside class="aside" data-mode="open">
             <ul class="aside__list">
+                <li><a class="aside__item" href="home.php">Главная</a></li>
                 <li><a class="aside__item" href="faculties.php">Факультеты</a></li>
                 <li><a class="aside__item" href="specialities.php">Специальности</a></li>
                 <li><a class="aside__item" href="teachers.php">Преподаватели</a></li>
@@ -73,15 +74,19 @@
         <main class="main">
             <div class="students" id="students">
                 <h1 class="title"><span>Студенты <?php
-                if($access == 'admin') echo "<div data-aim='adding' style='top: 6px;' class='ch__img'><img data-aim='adding' src='icons/add.svg' id='change-stud'>";
+                if($_SESSION === 'admin') echo "<div data-aim='adding' style='top: 6px;' class='ch__img'><img data-aim='adding' src='icons/add.svg' id='change-stud'>";
                 ?>
             </div>
             </span></h1>
             <div class="divider"></div>
             <div class="tb__buttons">
                 <?php 
+                    if ($_SESSION['access'] === 'student' || $_SESSION['access'] === 'admin') {
                         require "tmpsPHP/_groupsList.php";
-                    ?>
+                    } else {
+                        echo "<p style='font-size: 19px;'>Для просмотра списка студентов сначала нужно <a href='log-in.php'>авторизироватьcя</a> как студент или как работник учебной части университета</p>";
+                    }
+                ?>
             </div>
     </div>
     <div class="change__info hide" id="change__info">
@@ -178,24 +183,9 @@
                 </div>
             </div>
         </footer>
-        <div class="mypage hide">
-        <div class="mypage__dialog">
-            <div class="mypage__buttons">
-                <div class="mypage__photo">
-                    <img src="img/me.png" />
-                </div>
-                <input type="file" id="change__photo" name="change__photo" />
-            </div>
-            <div class="mypage__data">
-                <div class="mypage__initals">
-                    <p class="mypage__initials_lastname">Ф: <span>Осипенок</span></p>
-                    <p class="mypage__initials_lastname">И: <span>Артем</span></p>
-                    <p class="mypage__initials_lastname">О: <span>Отцовович</span></p>
-                    <p class="mypage__group">Студент группы: <span>813802</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
+        <?php
+        require "tmpsPHP/_mypage.php";
+        ?>
 </body>
 
 </html>

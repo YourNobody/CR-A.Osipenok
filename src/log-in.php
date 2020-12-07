@@ -1,3 +1,7 @@
+<?php 
+session_start();
+$_SESSION['access'] = 'guest';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,22 +15,20 @@
 <body>
     <div class="wrapper">
         <div class="log__in">
-            <form class="form" method="post">
-                <h1>Welcome</h1>
+            <form class="form" action="tmpsPHP/_signin.php" method="post">
+                <h1>Авторизация</h1>
                 <div class="username">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username"/>
+                    <input type="text" name="login" id="login" placeholder="Логин"/>
                 </div>
                 <div class="password">
-                    <label for="password">Password</label>
-                    <input type="text" name="password" id="password"/>
+                    <input type="password" name="password" id="password" placeholder="Пароль"/>
                 </div>
-                <button type="submit">LOGIN</button>
+                <button type="submit">Войти</button>
             </form>
-            <p class="forget">&#149; Forgot <a href="_help.php">Username/Password</a>?</p>
+            <a class="guest" href="home.php">Войти как гость</a>
+            <p class="forget">&#149; Забыли <a href="_help.php">Логин/Пароль</a>?</p>
         </div>
     </div>
 
-    <script src="js/log-in.js"></script>
 </body>
 </html>

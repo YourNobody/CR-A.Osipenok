@@ -1,5 +1,5 @@
 <?php 
-    $access = 'admin'
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -39,9 +39,9 @@
 <body>
     <header class="header">
         <div class="container">
-            <a class="log__out" href="log-in.php">
-                Log out
-            </a>
+        <?php 
+                require "tmpsPHP/_log-btn.php";
+            ?>
             <div class="personal">
                 <div class="admin">
                     <div class="admin__trig">&#9660;</div>
@@ -62,6 +62,7 @@
     <div class="content">
         <aside class="aside" data-mode="open">
             <ul class="aside__list">
+                <li><a class="aside__item" href="home.php">Главная</a></li>
                 <li><a class="aside__item" href="faculties.php">Факультеты</a></li>
                 <li><a class="aside__item" href="specialities.php">Специальности</a></li>
                 <li><a class="aside__item" href="teachers.php">Преподаватели</a></li>
@@ -74,7 +75,7 @@
             <div class="students" id="students">
                 <h1 class="title"><span>Студенты
                         <?php
-                if($access == 'admin') echo "<div data-aim='adding' style='top: 6px;' class='ch__img'><img data-aim='adding' src='icons/add.svg' id='change-stud'></div>";?>
+                if($_SESSION['access'] == 'admin') echo "<div data-aim='adding' style='top: 6px;' class='ch__img'><img data-aim='adding' src='icons/add.svg' id='change-stud'></div>";?>
                     </span></h1>
                 <div class="divider"></div>
                 <div class="table">
@@ -83,8 +84,8 @@
                     ?>
                 </div>
             </div>
-            <div class="change__info hide" id="change__info">
-                <h1 class="title">Данные о студенте</h1>
+            <div class="add__info hide" id="add__info">
+                <h1 class="title">Добавить студента</h1>
                 <div class="divider"></div>
                 <form action="tmpsPHP/_add.php" method="post" class="change__info_form">
                     <label for="num__zuch">Номер зачетки: </label><input type="text" id="num__zuch" name="num__zuch"
@@ -168,6 +169,86 @@
                 <form method="post" action="tmpsPHP/_delete.php">
                 </form>
             </div>
+            <div class="change__info hide" id="change__info">
+                <h1 class="title">Изменить данные о студенте</h1>
+                <div class="divider"></div>
+                <form action="tmpsPHP/_change.php" method="post" class="change__info_form">
+                    <label for="num__zuch">Номер зачетки: </label><input type="text" id="num__zuch" name="num__zuch" data-ref="number__zach"
+                        placeholder="Введите номер зачетки" readonly/>
+                    <label for="firstname">Имя: </label><input type="text" id="firstname" name="firstname" data-ref="stud__fio"
+                        placeholder="Введите имя" />
+                    <label for="lastname">Фамилия: </label><input type="text" id="lastname" name="lastname" data-ref="stud__fio"
+                        placeholder="Введите фамилию" />
+                    <label for="patronymic">Отчество: </label><input type="text" id="patronymic" name="patronymic" data-ref="stud__fio" 
+                        placeholder="Введите отчество" />
+                    <label for="id__group">ID группы: </label><input type="text" id="id__group" name="id__group" data-ref="number__group"
+                        placeholder="Введите ID группы" />
+
+                    <label for="curses">Курс:</label>
+                    <select id="curses" name="curs" data-ref="curs__num">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+
+                    <label for="facs">Факультет</label>
+                    <select id="facs" name="fac" data-ref="number__zach" data-ref="name__fac">
+                        <?php 
+
+                $server = 'localhost';
+                $name = 'kp';
+                $pass = 'kp';
+                $db = 'kursach';
+
+                $mysql = new mysqli($server, $name, $pass, $db); 
+                $sql = 'SELECT name_fac, id_fac FROM faculty ORDER BY id_fac';
+
+                $result = mysqli_query($mysql, $sql);
+
+                if ($result == false) {
+                    print("Произошла ошибка при выполнении запроса");
+                    exit();
+                }
+
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<option>$row[name_fac]</option>";
+                }
+
+                $mysql->close();
+
+            ?>
+                    </select>
+
+                    <label for="specs">Специльность:</label>
+                    <select id="specs" name="spec" data-ref="name__spec">
+                        <?php 
+
+                $server = 'localhost';
+                $name = 'kp';
+                $pass = 'kp';
+                $db = 'kursach';
+
+                $mysql = new mysqli($server, $name, $pass, $db); 
+                $sql = 'SELECT id_spec, name_spec FROM specialnost ORDER BY id_spec';
+
+                $result = mysqli_query($mysql, $sql);
+
+                if ($result == false) {
+                    print("Произошла ошибка при выполнении запроса");
+                    exit();
+                }
+
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<option>$row[name_spec]</option>";
+                }
+
+                $mysql->close();
+
+            ?>
+                    </select>
+                    <button type="submit">Изменить</button>
+                </form>
         </main>
     </div>
     <footer class="footer">
@@ -177,24 +258,9 @@
             </div>
         </div>
     </footer>
-    <div class="mypage hide">
-        <div class="mypage__dialog">
-            <div class="mypage__buttons">
-                <div class="mypage__photo">
-                    <img src="img/me.png" />
-                </div>
-                <input type="file" id="change__photo" name="change__photo" />
-            </div>
-            <div class="mypage__data">
-                <div class="mypage__initals">
-                    <p class="mypage__initials_lastname">Ф: <span>Осипенок</span></p>
-                    <p class="mypage__initials_lastname">И: <span>Артем</span></p>
-                    <p class="mypage__initials_lastname">О: <span>Отцовович</span></p>
-                    <p class="mypage__group">Студент группы: <span>813802</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+        require "tmpsPHP/_mypage.php";
+    ?>
 </body>
 
 </html>

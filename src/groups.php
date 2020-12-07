@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,9 +40,9 @@
 <body>
     <header class="header">
         <div class="container">
-            <a class="log__out" href="log-in.php">
-                Log out
-            </a>
+        <?php 
+                require "tmpsPHP/_log-btn.php";
+            ?>
             <div class="personal">
                 <div class="admin">
                     <div class="admin__trig">&#9660;</div>
@@ -58,6 +63,7 @@
     <div class="content">
         <aside class="aside" data-mode="open">
             <ul class="aside__list">
+                <li><a class="aside__item" href="home.php">Главная</a></li>
                 <li><a class="aside__item" href="faculties.php">Факультеты</a></li>
                 <li><a class="aside__item" href="specialities.php">Специальности</a></li>
                 <li><a class="aside__item" href="teachers.php">Преподаватели</a></li>
@@ -83,7 +89,11 @@
                                 <th>Номер группы</th>
                                 <th>Специальность</th>
                                 <th>Факультет</th>
-                                <th>Список студентов</th>
+                                <?php 
+                                    if ($_SESSION['access'] === 'admin' || $_SESSION['access'] === 'student') {
+                                        echo "<th>Список студентов</th>";
+                                    }
+                                ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -103,24 +113,9 @@
             </div>
         </div>
     </footer>
-    <div class="mypage hide">
-        <div class="mypage__dialog">
-            <div class="mypage__buttons">
-                <div class="mypage__photo">
-                    <img src="img/me.png" />
-                </div>
-                <input type="file" id="change__photo" name="change__photo" />
-            </div>
-            <div class="mypage__data">
-                <div class="mypage__initals">
-                    <p class="mypage__initials_lastname">Ф: <span>Осипенок</span></p>
-                    <p class="mypage__initials_lastname">И: <span>Артем</span></p>
-                    <p class="mypage__initials_lastname">О: <span>Отцовович</span></p>
-                    <p class="mypage__group">Студент группы: <span>813802</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+        require "tmpsPHP/_mypage.php";
+    ?>
 </body>
 
 </html>

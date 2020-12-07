@@ -1,7 +1,10 @@
 'use strict'
 
 const labels = document.querySelectorAll('.log__in label'),
-      inputs = document.querySelectorAll('.log__in input')
+      inputs = document.querySelectorAll('.log__in input'),
+      form = document.querySelector('form')
+
+form.addEventListener('submit', () => form.reset())
 
 inputs.forEach(item => {
     item.addEventListener('focus', e => labelUp(e))
@@ -11,7 +14,7 @@ inputs.forEach(item => {
 
 function labelUp(e) {
     const label = e.target.previousElementSibling
-    label.style.top = 13 + 'px'
+    label.style.top = 10 + 'px'
     label.style.left = 5 + 'px'
     label.style.fontSize = 16 + 'px'
 }

@@ -24,7 +24,7 @@
         echo "<form action='./students.php' method='post' style='display:inline-block;'>
             <input type='hidden' name='n_gr'value='$row[number_group]'>
             <button class='groups__btn'>$row[number_group]($row[name_spec])</button>
-        </form>  ";
+        </form>    ";
     }
 
     $mysql->close();
