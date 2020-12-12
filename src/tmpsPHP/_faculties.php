@@ -1,5 +1,4 @@
 <?php 
-
     $server = 'localhost';
     $name = 'kp';
     $pass = 'kp';
@@ -20,5 +19,4 @@
     }
 
     $mysql->close();
-
 ?>

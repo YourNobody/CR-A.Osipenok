@@ -91,6 +91,12 @@
     color: rgb(39, 39, 39);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .guest {
     display: block;
     text-align: center;

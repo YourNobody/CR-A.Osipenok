@@ -52,7 +52,7 @@
     ";
 
     if (mysqli_query($mysql, $sql)) {
-        header('Location: http://my-first-project/src/students.php');
+        header('Location: http://my-first-project/src/students-btns.php');
         $mysql->close();
     } else {
         print("Произошла ошибка при выполнении главного запроса");

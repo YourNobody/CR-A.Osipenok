@@ -2,55 +2,32 @@
     session_start();
 ?>
 
+<?php
 
-<!DOCTYPE html>
-<html lang="en">
+    require "tmpsPHP/_head.php";
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-cache">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-    <link href="css/null.css" rel="stylesheet" />
-    <link href="css/header.css" rel="stylesheet" />
-    <link href="css/footer.css" rel="stylesheet" />
-    <link href="css/sidebar.css" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
-    <link href="css/mypage.css" rel="stylesheet" />
-    <link href="css/loader.css" rel="stylesheet" />
-    <script defer type="module" src="js/mypage.js"></script>
-    <script defer src="js/sidebar.js"></script>
-    <script defer src="js/main.js"></script>
-    <script defer type="module" src="js/admin.js"></script>
-    <style>
-        .content {
-            margin: 10px 0 0 0;
-            padding: 0 20px 35px 0;
-            min-height: 83%;
-            display: flex;
-            justify-content: space-between;
-        }
+?>
 
-        .hide {
-            display: none;
-        }
-    </style>
-</head>
 
 <body>
     <header class="header">
         <div class="container">
-        <?php 
+            <?php 
                 require "tmpsPHP/_log-btn.php";
             ?>
+            <?php if($_SESSION['access'] === 'admin' || $_SESSION['access'] === 'student'): ?>
             <div class="personal">
-                <div class="admin">
-                    <div class="admin__trig">&#9660;</div>
-                    <ul class="admin__setts hide">
-                        <li data-to="students">Изменить</li>
-                        <li data-to="vedomost">Создать ведомость</li>
-                </div>
-                </ul>
+                <?php 
+                    if ($_SESSION['access'] === 'admin') {
+                        echo "<div class='admin'>
+                        <div class='admin__trig'>&#9660;</div>
+                        <ul class='admin__setts hide'>
+                            <li data-to='students'>Изменить</li>
+                            <li data-to='vedomost'>Создать ведомость</li>
+                        </ul>
+                        </div>";
+                    }
+                ?>
                 <div class="personal__initials">
                 Артем Осипенок
                 </div>
@@ -58,6 +35,7 @@
                     <img src="img/me.png" />
                 </div>
             </div>
+            <?php endif ?>
         </div>
     </header>
     <div class="content">
@@ -76,11 +54,30 @@
         <div class="groups" id="groups">
                 <h1 class="title">Группы</h1>
                 <div class="divider"></div>
-                <div class="choose__course">
-                    <label>1</label><input class="radio" type="radio" id="choose__course_radio" name="choose__course_radio"/>
-                    <label>2</label><input class="radio" type="radio" id="choose__course_radio" name="choose__course_radio"/>
-                    <label>3</label><input class="radio" type="radio" id="choose__course_radio" name="choose__course_radio"/>
-                    <label>4</label><input class="radio" type="radio" id="choose__course_radio" name="choose__course_radio"/>
+                <div class="filters">
+                    <div class="filters__btn filters__set" data-aim="set">Фильтр</div>
+                    <div class="filters__choose">
+                        <div class="filters__btn filters__reset" data-aim="reset">Сбросить</div>
+                        <div class="filters__btn filters__hide" data-aim="hide">Скрыть</div>
+                        <div class="filters__btns">
+                            <div>
+                                <span>По курсу: </span>
+                                <input type="radio" class="radio" data-aim="course" id="filt__course" name="filt__table"/>
+                                <label for="filt__course"></label>
+                            </div>
+                            <div>
+                                <span>По специльностям: </span>
+                                <input type="radio" class="radio" data-aim="spec" id="filt__spec" name="filt__table"/>
+                                <label for="filt__spec"></label>
+                            </div>
+                            <div>
+                                <span>По факультетам: </span>
+                                <input type="radio" class="radio" data-aim="fac" id="filt__fac" name="filt__table"/>
+                                <label for="filt__fac"></label>
+                            </div>
+                            <input type="text" name="filt__bytext" id="filt__bytext"/>
+                        </div>
+                    </div>
                 </div>
                 <div class="table">
                     <table>
@@ -117,5 +114,4 @@
         require "tmpsPHP/_mypage.php";
     ?>
 </body>
-
 </html>

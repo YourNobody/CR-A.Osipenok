@@ -26,9 +26,9 @@
     if ($_SESSION['access'] === 'admin' || $_SESSION['access'] === 'student') {
         while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
-                <td>$row[number_group]</td>
-                <td>$row[name_spec]</td>
-                <td>$row[name_fac]</td>
+                <td id='number_group'>$row[number_group]</td>
+                <td id='name_spec'>$row[name_spec]</td>
+                <td id='name_fac'>$row[name_fac]</td>
                 <td data-to=\"show-in-window\">Открыть</td>
             </tr>
             ";
@@ -36,9 +36,9 @@
     } else {
         while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
-                <td>$row[number_group]</td>
-                <td>$row[name_spec]</td>
-                <td>$row[name_fac]</td>
+                <td id='number__group'>$row[number_group]</td>
+                <td id='name__spec'>$row[name_spec]</td>
+                <td id='name__fac'>$row[name_fac]</td>
             </tr>
             ";
         }

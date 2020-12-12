@@ -21,6 +21,6 @@
         exit();
     }
 
-    header('Location: /src/home.php');
+    header('Location: /src/students-btns.php');
     $mysql->close();
 ?>
