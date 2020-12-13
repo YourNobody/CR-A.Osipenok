@@ -47,6 +47,11 @@
                 <li><a class="aside__item" href="teachers.php">Преподаватели</a></li>
                 <li><a class="aside__item" href="groups.php">Группы</a></li>
                 <li><a class="aside__item" href="students-btns.php">Студенты</a></li>
+                <?php 
+                if ($_SESSION['access'] === 'admin' || $_SESSION['access'] === 'student') {
+                    echo "<li><a class='aside__item' href='vedomost.php'>Создать ведомость</a>";
+                }
+                ?>
             </ul>
             <div class="show__aside">&#10095;</div>
         </aside>
@@ -60,17 +65,17 @@
                         <div class="filters__btn filters__reset" data-aim="reset">Сбросить</div>
                         <div class="filters__btn filters__hide" data-aim="hide">Скрыть</div>
                         <div class="filters__btns">
-                            <div>
+                            <div class="radio__course">
                                 <span>По курсу: </span>
                                 <input type="radio" class="radio" data-aim="course" id="filt__course" name="filt__table"/>
                                 <label for="filt__course"></label>
                             </div>
-                            <div>
+                            <div class="radio__spec">
                                 <span>По специльностям: </span>
                                 <input type="radio" class="radio" data-aim="spec" id="filt__spec" name="filt__table"/>
                                 <label for="filt__spec"></label>
                             </div>
-                            <div>
+                            <div class="radio__fac">
                                 <span>По факультетам: </span>
                                 <input type="radio" class="radio" data-aim="fac" id="filt__fac" name="filt__table"/>
                                 <label for="filt__fac"></label>

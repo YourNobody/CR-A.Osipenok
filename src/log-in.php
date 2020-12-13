@@ -18,10 +18,10 @@ $_SESSION['access'] = 'guest';
             <form class="form" action="tmpsPHP/_signin.php" method="post">
                 <h1>Авторизация</h1>
                 <div class="username">
-                    <input type="text" name="login" id="login" placeholder="Логин"/>
+                    <input type="text" name="login" id="login" placeholder="Логин" required/>
                 </div>
                 <div class="password">
-                    <input type="password" name="password" id="password" placeholder="Пароль"/>
+                    <input type="password" name="password" id="password" placeholder="Пароль" required/>
                 </div>
                 <button type="submit">Войти</button>
             </form>

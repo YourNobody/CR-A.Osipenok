@@ -2,8 +2,9 @@
     position: relative;
     width: 250px;
     height: 560px;
-    background-color: rgb(18, 18, 199);
     transition: all 0.3s ease-out 0s;
+    background-color: rgb(35, 40, 45);
+    box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.419);
 }
 
 .aside__list {
@@ -15,18 +16,17 @@
 .aside__list a {
     display: block;
     width: 100%;
-    color: white;
+    color: rgb(225, 225, 225);
     padding: 18px 0 18px 17px;
-    font-size: 20px;
+    font-size: 18px;
     transition: background-color, box-shadow, color, padding-left 0.2s ease-out;
     cursor: pointer;
 }
 
 .aside__list a:hover {
-    background-color:  rgb(18, 18, 199);
-    box-shadow: inset 0 0px 12px rgba(0, 0, 0, 0.535);  
-    color: rgb(255, 255, 124);
-    padding-left: 40px;
+    background-color:  rgb(0, 115, 170);
+    color: white;
+    padding-left: 30px;
 }
 
 .show__aside {
@@ -38,7 +38,7 @@
     transform: translate(50%, -50%) rotate(180deg);
     background-color: white;
     box-shadow: inset 0 0 3px 1px rgb(64, 220, 255);
-    color: black;
+    color: rgba(0, 0, 0, 0.83);
     line-height: 40px;
     text-align: center;
     font-size: 30px;
@@ -48,12 +48,11 @@
 }
 
 .show__aside:hover {
-    transform: translate(50%, -50%) scale(1.1) rotate(-180deg);
     box-shadow: inset 0 0 20px 20px rgb(35, 193, 228), -3px 0 15px rgba(0, 0, 0, 0.631);
     color: white;
 }
 
 .show__aside:active {
     transition: all 0s ease-in 0s;
-    box-shadow: inset 0 0 20px 20px black, -3px 0 15px rgba(0, 0, 0, 0.631);
+    box-shadow: inset 0 0 20px 20px rgb(35, 40, 45), -3px 0 15px rgba(0, 0, 0, 0.631);
 }

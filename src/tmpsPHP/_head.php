@@ -15,6 +15,7 @@
     <script defer src="js/sidebar.js"></script>
     <script defer src="js/main.js"></script>
     <script defer src="js/admin.js"></script>
+    <script defer src="js/vedomost.js"></script>
     <style>
         .hide {
             display: none;

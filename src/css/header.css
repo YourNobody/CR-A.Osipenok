@@ -1,8 +1,8 @@
 header {
     width: 100%;
     height: 60px;
-    background-color: rgb(18, 18, 199);
     font-family: 'Roboto', sans-serif;
+    background-color: rgb(35, 40, 45);
 }
 
 header .container {
@@ -18,7 +18,7 @@ header .container {
     height: 100%;
     width: auto;
     padding: 0 10px;
-    color: white;
+    color: rgb(225, 225, 225);
     font-size: 18px;
     line-height: 60px;
     transition: all 0.15s ease-in;
@@ -26,9 +26,8 @@ header .container {
 }
 
 .log__out:hover {
-    background-color:  rgb(18, 18, 199);
-    box-shadow: inset 0 0px 12px rgba(0, 0, 0, 0.535);  
-    color: rgb(255, 255, 173);
+    background-color: rgb(0, 115, 170);
+    color: white;
 }
 
 .personal {
@@ -53,10 +52,6 @@ header .container {
     cursor: pointer;
 }
 
-.personal__photo:hover {
-    transform: scale(1.1);
-}
-
 .personal__photo img {
     position: absolute;
     width: 100%;
@@ -77,13 +72,14 @@ header .container {
     font-size: 20px;
     text-align: center;
     line-height: 60px;
+    color: rgb(245, 245, 245);
+    transition: all 0.15s ease-in;
     cursor: pointer;
 }
 
 .admin__trig:hover {
-    background-color:  rgb(18, 18, 199);
-    box-shadow: inset 0 0px 12px rgba(0, 0, 0, 0.535);  
-    color: rgb(255, 255, 173);
+    background-color: rgb(0, 115, 170);
+    color: white;
 }
 
 .admin__setts {

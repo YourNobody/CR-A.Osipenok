@@ -47,6 +47,11 @@
                 <li><a class="aside__item" href="teachers.php">Преподаватели</a></li>
                 <li><a class="aside__item" href="groups.php">Группы</a></li>
                 <li><a class="aside__item" href="students-btns.php">Студенты</a></li>
+                <?php 
+                if ($_SESSION['access'] === 'admin' || $_SESSION['access'] === 'student') {
+                    echo "<li><a class='aside__item' href='vedomost.php'>Создать ведомость</a>";
+                }
+                ?>
             </ul>
             <div class="show__aside">&#10095;</div>
         </aside>

@@ -9,7 +9,7 @@ const filters = document.querySelector('.filters'),
       tableRows = table.querySelectorAll('tbody tr'),
       filtersMain = filters.querySelector('.filters__choose')
     
-// filtersRadioBtns.forEach(item => item.addEventListener('input', () => checkRadioFilters(filtersRadioBtns)))
+// // filtersRadioBtns.forEach(item => item.addEventListener('input', () => checkRadioFilters(filtersRadioBtns)))
 filtersTextField.addEventListener('input', e => filterByText(e))
 
 filtersBtns.forEach(item => item.addEventListener('click', e => filtersBtnsDoing(e)))
@@ -54,7 +54,6 @@ function checkRadioFilters(inputs) {
     })
     console.log(tbody)
     Array.prototype.forEach.call(tbody.children, item => tableTbody.append(item))
-
 }
 
 function filterByText(e) {
