@@ -23,13 +23,13 @@
 
     while ($row = mysqli_fetch_array($result)) {
         echo "<tr>
-            <td id=\"number__zach\">$row[N_zachetki]</td>
-            <td id=\"stud__fio\">$row[full_fio]</td>
-            <td id=\"curs__num\">$row[kurs]</td>
-            <td id=\"number__group\">$row[number_group]</td> 
-            <td id=\"name__spec\">$row[name_spec]</td>
-            <td id=\"name__fac\">$row[name_fac]</td>
-            <td id='create__ved'>Создать</td>
+            <td data-id=\"number__zach\">$row[N_zachetki]</td>
+            <td data-id=\"stud__fio\">$row[full_fio]</td>
+            <td data-id=\"curs__num\">$row[kurs]</td>
+            <td data-id=\"number__group\">$row[number_group]</td> 
+            <td data-id=\"name__spec\">$row[name_spec]</td>
+            <td data-id=\"name__fac\">$row[name_fac]</td>
+            <td data-id='create__ved'>Создать</td>
         </tr>";
     }
 

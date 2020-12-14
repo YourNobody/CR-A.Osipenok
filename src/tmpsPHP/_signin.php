@@ -25,6 +25,7 @@
 
  if ($user != false) {
     $_SESSION['access'] = 'student';
+    $_SESSION['n_zach'] = $login;
     header('Location: ../home.php');
     $link->close();
 } else {

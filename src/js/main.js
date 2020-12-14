@@ -2,14 +2,14 @@
 
 const filters = document.querySelector('.filters'),
       filtersBtns = filters.querySelectorAll('.filters__btn'),
-      filtersRadioBtns = filters.querySelectorAll('.filters__btns input'),
+      filtersRadioBtns = filters.querySelectorAll('.filters__btns input [type="radio"]'),
       filtersTextField = filters.querySelector('#filt__bytext'),
       table = document.querySelector('.table'),
       tableTbody = table.querySelector('tbody'),
       tableRows = table.querySelectorAll('tbody tr'),
       filtersMain = filters.querySelector('.filters__choose')
     
-// // filtersRadioBtns.forEach(item => item.addEventListener('input', () => checkRadioFilters(filtersRadioBtns)))
+filtersRadioBtns.forEach(item => item.addEventListener('input', () => checkRadioFilters(filtersRadioBtns)))
 filtersTextField.addEventListener('input', e => filterByText(e))
 
 filtersBtns.forEach(item => item.addEventListener('click', e => filtersBtnsDoing(e)))
@@ -62,7 +62,7 @@ function filterByText(e) {
         tableRows.forEach(row => {
             count = 0
             Array.prototype.forEach.call(row.children, i => {
-                if (i.innerText.indexOf(e.target.value) > -1) {
+                if (i.innerText.toLowerCase().indexOf(e.target.value.toLowerCase()) > -1) {
                     row.style.display = ''
                 } else {
                     count++

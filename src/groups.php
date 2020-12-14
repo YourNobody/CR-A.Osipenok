@@ -10,34 +10,9 @@
 
 
 <body>
-    <header class="header">
-        <div class="container">
-            <?php 
-                require "tmpsPHP/_log-btn.php";
-            ?>
-            <?php if($_SESSION['access'] === 'admin' || $_SESSION['access'] === 'student'): ?>
-            <div class="personal">
-                <?php 
-                    if ($_SESSION['access'] === 'admin') {
-                        echo "<div class='admin'>
-                        <div class='admin__trig'>&#9660;</div>
-                        <ul class='admin__setts hide'>
-                            <li data-to='students'>Изменить</li>
-                            <li data-to='vedomost'>Создать ведомость</li>
-                        </ul>
-                        </div>";
-                    }
-                ?>
-                <div class="personal__initials">
-                Артем Осипенок
-                </div>
-                <div class="personal__photo">
-                    <img src="img/me.png" />
-                </div>
-            </div>
-            <?php endif ?>
-        </div>
-    </header>
+<?php 
+        require "tmpsPHP/_header.php";
+    ?>
     <div class="content">
         <aside class="aside" data-mode="open">
             <ul class="aside__list">
@@ -108,15 +83,9 @@
             </div>
         </main>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="logo">
-                &copy; BSU of Informatics and Radioelectronics
-            </div>
-        </div>
-    </footer>
-    <?php
-        require "tmpsPHP/_mypage.php";
-    ?>
+    <?php 
+    require "tmpsPHP/_footer.php";
+?>
+
 </body>
 </html>

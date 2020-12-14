@@ -4,10 +4,9 @@
 
 <?php
 
-require "tmpsPHP/_head.php";
+    require "tmpsPHP/_head.php";
 
 ?>
-
 
 <body>
 <?php 
@@ -31,26 +30,11 @@ require "tmpsPHP/_head.php";
             <div class="show__aside">&#10095;</div>
         </aside>
         <main class="main">
-        <div class="specialities" id="specialities">
-                <h1 class="title">Специальности</h1>
-                <div class="divider"></div>
-                <div class="table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Специальность</th>
-                                <th>Факультет</th>
-                                <th>Учебный план</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                                require "tmpsPHP/_specialnost.php"
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <h1 class="title">Персональная страница студента</h1>
+            <div class="divider"></div>
+            <?php
+                require "tmpsPHP/_mypage.php";
+            ?>
         </main>
     </div>
     <?php 

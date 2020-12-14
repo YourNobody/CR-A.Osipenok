@@ -327,16 +327,16 @@ td {
     margin: 35px 0 0 7px;
 }
 
-#create__ved {
+[data-id="create__ved"] {
     background-color: rgb(225, 225, 225);
     cursor: pointer;
 }
 
-#create__ved:hover {
+[data-id="create__ved"]:hover {
     background-color:  rgb(194, 194, 194);
 }
 
-#create__ved:active {
+[data-id="create__ved"]:active {
     background-color:  rgb(194, 194, 194);
     color: rgb(0, 115, 170);
 }
@@ -349,9 +349,14 @@ td {
     margin: 10px 0 0 0;
 }
 
+.ved__template h2 {
+    margin: 20px 0 0 7px;
+}
+
 .ved__add-row input {
     height: 35px;
     padding: 2px 0 0 5px;
+    margin: 15px 0 15px 0;
     font-size: 17px;
     background-color: transparent;
     border-bottom: 1px solid rgba(35, 40, 45, 0.837);
@@ -361,31 +366,31 @@ td {
     border-bottom: 1px solid rgb(0, 115, 170);
 }
 
-#ved-subject {
+[data-to="ved-subject"] {
     width: 12%;   
 }
 
-#ved-teacher {
+[data-to="ved-teacher"] {
     width: 22%;
 }
 
-#ved-hours {
+[data-to="ved-hours"] {
     width: 6%;
 }
 
-#ved-control {
+[data-to="ved-control"] {
     width: 10%;
 }
 
-#ved-mark {
+[data-to="ved-mark"] {
     width: 8%;
 }
 
-#ved-date {
+[data-to="ved-date"] {
     width: 10%;
 }
 
-#add_button, #clear_button {
+.btn {
     width: 10%;
     background-color: rgba(35, 40, 45, 0.837);
     color: rgb(228, 228, 228);
@@ -395,18 +400,13 @@ td {
     cursor: pointer;
 }
 
-#add_button:hover {
-    background-color: rgb(0, 115, 170);
-    color: white;
-}
-
-#clear_button:hover {
+.btn:hover {
     background-color: rgb(0, 115, 170);
     color: white;
 }
 
 .choose__sem {
-    margin: 0 0 7px 4px;
+    margin: 0 0 12px 4px;
     padding: 0 0 0 7px;
     width: 100px;
     height: 30px;
@@ -418,15 +418,7 @@ td {
     margin: 18px 0 0 0;
 }
 
-.ved__table input {
-    width: 100%;
-    height: 100%;
-    font-size: 18px;
-    background-color: transparent;
-    padding: 0 32%;
-}
-
-.ved__table button {
+.ved__table-form button {
     float: right;
     margin: 10px 0 0 0;
 }
