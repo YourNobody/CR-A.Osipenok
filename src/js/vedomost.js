@@ -1,17 +1,20 @@
-'use strict'
 
-const tableVed = document.querySelector('.ved__table'),
-      tableTbodyVed = tableVed.querySelector('.ved__table tbody'),
-      tableRowsVed = tableTbodyVed.querySelectorAll('tr'),
-      filtersTextFieldVed = document.querySelector('#find__stud'),
-      vedBtnsWrapper = document.querySelector('.ved__btns'),
-      vedBtns = vedBtnsWrapper.querySelectorAll('.ved__btn'),
-      createVedSearchWrapper = document.querySelector('.search__create-ved')
 
-vedBtns.forEach(btn => btn.addEventListener('click', (e) => vedBtnsDoing(e)))
-filtersTextFieldVed.addEventListener('input', (e) => filterByTextVed(e))
+(function() { 
+    'use strict'
 
-function filterByTextVed(e) {
+    const tableVed = document.querySelector('.ved__table'),
+        tableTbodyVed = tableVed.querySelector('.ved__table tbody'),
+        tableRowsVed = tableTbodyVed.querySelectorAll('tr'),
+        filtersTextFieldVed = document.querySelector('#find__stud'),
+        vedBtnsWrapper = document.querySelector('.ved__btns'),
+        vedBtns = vedBtnsWrapper.querySelectorAll('.ved__btn'),
+        createVedSearchWrapper = document.querySelector('.search__create-ved')
+
+    vedBtns.forEach(btn => btn.addEventListener('click', (e) => vedBtnsDoing(e)))
+    filtersTextFieldVed.addEventListener('input', (e) => filterByTextVed(e))
+
+    function filterByTextVed(e) {
     let count = 0
     if (e.target.value.length) {
         togglePopup(tableVed, 'show')
@@ -30,19 +33,19 @@ function filterByTextVed(e) {
         togglePopup(tableVed, 'hide')
         tableRowsVed.forEach(row => row.style.display = '')
     }
-}
+    }
 
 
-function vedBtnsDoing(e) {
+    function vedBtnsDoing(e) {
     const { aim } = e.target.dataset
 
     if (aim === 'create-ved' || aim === 'change-ved') {
         togglePopup(vedBtnsWrapper, 'hide')
         togglePopup(createVedSearchWrapper, 'show')
     }
-}
+    }
 
-function togglePopup(elem, method) {
+    function togglePopup(elem, method) {
     if (method === 'show') {
         elem.classList.remove('hide')
     } else if (method === 'hide') {
@@ -50,20 +53,20 @@ function togglePopup(elem, method) {
     } else {
         console.log('WTF COMMAND!')
     }
-}
+    }
 
 
-const allCreateBtnsVed = document.querySelectorAll('[data-id="create__ved"]')
-const creatingVedBlock = document.querySelector('.creating__ved')
-const creatingVedTemplate = creatingVedBlock.querySelector('.ved__template')
+    const allCreateBtnsVed = document.querySelectorAll('[data-id="create__ved"]')
+    const creatingVedBlock = document.querySelector('.creating__ved')
+    const creatingVedTemplate = creatingVedBlock.querySelector('.ved__template')
 
 
-const tableVedForm = document.querySelector('.ved__table-form'),
-      tableTbodyVedForm = tableVedForm.querySelector('tbody')
+    const tableVedForm = document.querySelector('.ved__table-form'),
+        tableTbodyVedForm = tableVedForm.querySelector('tbody')
 
-allCreateBtnsVed.forEach(item => item.addEventListener('click', (e) => moveToCreate(e)))
+    allCreateBtnsVed.forEach(item => item.addEventListener('click', (e) => moveToCreate(e)))
 
-function moveToCreate(e) {
+    function moveToCreate(e) {
     let tr = e.target
     while(tr.tagName !== 'TR') {
         tr = tr.parentNode
@@ -82,53 +85,53 @@ function moveToCreate(e) {
 
     togglePopup(createVedSearchWrapper, 'hide')
     togglePopup(creatingVedBlock, 'show')
-}
+    }
 
-const addRowVed = document.querySelector('.ved__add-row'),
-      addRowVedAllInputs = addRowVed.querySelectorAll('.ved__add-row input'),
-      addRowVedBtns = addRowVed.querySelectorAll('.btn')
+    const addRowVed = document.querySelector('.ved__add-row'),
+        addRowVedAllInputs = addRowVed.querySelectorAll('.ved__add-row input'),
+        addRowVedBtns = addRowVed.querySelectorAll('.btn')
 
-addRowVedBtns.forEach(btn => btn.addEventListener('click', (e) => addRowToVed(e)))
+    addRowVedBtns.forEach(btn => btn.addEventListener('click', (e) => addRowToVed(e)))
 
 
-const vedAllSubjs = document.querySelectorAll('[data-bd="ved-all-subj"] li')
-const vedAllControls = document.querySelectorAll('[data-bd="ved-all-control"] li')
-const vedAllPrepods = document.querySelectorAll('[data-bd="ved-all-prepod"] li')
-const subjs = []
-const controls = []
-const prepods = []
-const vedIdTextField = document.querySelector('[data-to="ved-id"]')
-const vedHoursField = document.querySelector('[data-to="ved-hours"]')
-const vedControlField = document.querySelector('[data-to="ved-control"]')
-const vedTeacherField = document.querySelector('[data-to="ved-teacher"]')
-let numZachTitleText
+    const vedAllSubjs = document.querySelectorAll('[data-bd="ved-all-subj"] li')
+    const vedAllControls = document.querySelectorAll('[data-bd="ved-all-control"] li')
+    const vedAllPrepods = document.querySelectorAll('[data-bd="ved-all-prepod"] li')
+    const subjs = []
+    const controls = []
+    const prepods = []
+    const vedIdTextField = document.querySelector('[data-to="ved-id"]')
+    const vedHoursField = document.querySelector('[data-to="ved-hours"]')
+    const vedControlField = document.querySelector('[data-to="ved-control"]')
+    const vedTeacherField = document.querySelector('[data-to="ved-teacher"]')
+    let numZachTitleText
 
-const si = setInterval(() => {
-   try {
+    const si = setInterval(() => {
+    try {
     numZachTitleText = document.querySelector('[data-name="num__zach"]').innerText
-   } catch (e) {}
-}, (300))
+    } catch (e) {}
+    }, (300))
 
-vedAllSubjs.forEach((item) => {
+    vedAllSubjs.forEach((item) => {
     let children = item.children
     subjs.push([[...children].find(i => i.dataset.bd === 'vedid').innerText, [
         [...children].find(i => i.dataset.bd === 'vedsubj').innerText,
         [...children].find(i => i.dataset.bd === 'vedhours').innerText,
         [...children].find(i => i.dataset.bd === 'vedspec').innerText
     ]])
-})
+    })
 
-vedAllControls.forEach((item) => {
+    vedAllControls.forEach((item) => {
     let children = item.children
     controls.push([...children].find(i => i.dataset.bd === 'vedcontrol').innerText)
-})
+    })
 
-vedAllPrepods.forEach((item) => {
+    vedAllPrepods.forEach((item) => {
     let children = item.children
     prepods.push([...children].find(i => i.dataset.bd === 'vedprepod').innerText)
-})
+    })
 
-vedIdTextField.addEventListener('input', (e) => {
+    vedIdTextField.addEventListener('input', (e) => {
     if (e.target.value.length) {
         for (let i = 0; i < subjs.length; i++) {
             if (subjs[i][0] == e.target.value && subjs[i][1][2] == numZachTitleText.substring(2, 5)) {
@@ -136,9 +139,9 @@ vedIdTextField.addEventListener('input', (e) => {
             }
         }
     }
-})
+    })
 
-function addRowToVed(e) {    
+    function addRowToVed(e) {    
     const { aim } = e.target.dataset
 
     if (aim === 'add') {
@@ -169,22 +172,24 @@ function addRowToVed(e) {
     } else if (aim === 'clear') {
         addRowVedAllInputs.forEach(item => item.value = '')
     }
-}
+    }
 
-function findTextDeep(arr, id, slic) {
+    function findTextDeep(arr, id, slic) {
     for (let i = 0; i < arr.length; i++) {
         if (subjs[i][0] == id && subjs[i][1][2] == slic) {
             return subjs[i][1][0]
         }
     }
     return '-'
-}
+    }
 
-function findTextNoDeep(arr, id) {
+    function findTextNoDeep(arr, id) {
     for (let i = 0; i < arr.length; i++) {
         if (i == id) {
             return arr[i]
         }
     }
     return '-'
-}
+    }
+
+})()

@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: rgb(0, 118, 172);
+    background-color: rgb(0, 118, 172) !important;
 }
 
 body::-webkit-scrollbar {
@@ -48,6 +48,21 @@ body::-webkit-scrollbar {
     font-weight: 500;
 }
 
+[data-to="study-plan"] {
+    font-size: 17px;    
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.919);
+}
+
+[data-to="study-plan"]:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+[data-to="study-plan"]:active {
+    color: rgb(0, 147, 214);
+}
+
 .divider {
     width: 100%;
     height: 1px;
@@ -66,6 +81,22 @@ body::-webkit-scrollbar {
     position: absolute;
     left: 3px;
 }
+
+.faculties__list li span {
+    cursor: pointer;
+} 
+
+.l__blue {
+    color: rgb(0, 147, 214);
+}
+
+.faculties__list li p {
+    line-height: 0px;
+    font-size: 0px;
+    padding: 0 15px 0 0;
+    margin: 7px 0 0 15px;
+}
+
 
 table {
     width: 100%;
@@ -425,8 +456,8 @@ td {
 
 .mypage__title {
     font-weight: 400;
-    font-size: 18px;
-    padding: 0 0 18px;
+    font-size: 20px;
+    padding: 5px 0 20px 0;
 }
 
 .mypage__title span {
@@ -434,10 +465,16 @@ td {
 }
 
 .sem__choose {
-    padding: 7px 5px;
+    margin: 5px 0 10px 0;
+    padding: 7px 5px 7px 10px;
     color: white;
     max-width: 50%;
     flex-flow: row;
+}
+
+.sem__choose .mypage__title {
+    font-size: 16px;
+    margin: 0 0 0 5px;
 }
 
 .sem__choose .mypage__title {

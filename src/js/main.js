@@ -1,18 +1,30 @@
 'use strict'
 
-const filters = document.querySelector('.filters'),
-      filtersBtns = filters.querySelectorAll('.filters__btn'),
-      filtersRadioBtns = filters.querySelectorAll('.filters__btns input [type="radio"]'),
-      filtersTextField = filters.querySelector('#filt__bytext'),
-      table = document.querySelector('.table'),
-      tableTbody = table.querySelector('tbody'),
-      tableRows = table.querySelectorAll('tbody tr'),
-      filtersMain = filters.querySelector('.filters__choose')
-    
-filtersRadioBtns.forEach(item => item.addEventListener('input', () => checkRadioFilters(filtersRadioBtns)))
-filtersTextField.addEventListener('input', e => filterByText(e))
+let filters,
+      filtersBtns,
+      filtersRadioBtns,
+      filtersTextField,
+      table,
+      tableTbody ,
+      tableRows,
+      filtersMain
 
-filtersBtns.forEach(item => item.addEventListener('click', e => filtersBtnsDoing(e)))
+try {
+    filters = document.querySelector('.filters'),
+    filtersBtns = filters.querySelectorAll('.filters__btn'),
+    filtersRadioBtns = filters.querySelectorAll('.filters__btns input [type="radio"]'),
+    filtersTextField = filters.querySelector('#filt__bytext'),
+    table = document.querySelector('.table'),
+    tableTbody = table.querySelector('tbody'),
+    tableRows = table.querySelectorAll('tbody tr'),
+    filtersMain = filters.querySelector('.filters__choose')
+
+    filtersRadioBtns.forEach(item => item.addEventListener('input', () => checkRadioFilters(filtersRadioBtns)))
+    filtersTextField.addEventListener('input', e => filterByText(e))
+
+    filtersBtns.forEach(item => item.addEventListener('click', e => filtersBtnsDoing(e)))
+} catch (error) {}
+    
 
 function checkRadioFilters(inputs) {
     const uniqFac = new Set()
@@ -100,6 +112,36 @@ function tooglePopup(elem, method) {
         console.log('WTF COMMAND!')
     }
 }
+
+function toogleClass(elem, className) {
+    elem.classList.toggle(className)
+}
+
+const facultiesListTitles = document.querySelectorAll('.faculties__list li span')
+
+facultiesListTitles.forEach(item => item.addEventListener('click', (e) => {
+    let el = e.target
+    try {
+        while(el.tagName != 'LI'){
+            el = e.target.parentNode
+        }
+    } catch (error) {
+        el = e.target
+    }
+
+    let p = [...el.children].find(i => i.tagName == 'P')
+
+    if (p.style.lineHeight == '0px' || p.style.lineHeight == '') {
+        toogleClass(e.target, 'l__blue')
+        p.style.transition = '0.2s all'
+        p.style.fontSize = '18px'
+        p.style.lineHeight = '20px'
+    } else {
+        toogleClass(e.target, 'l__blue')
+        p.style.fontSize = '0px'
+        p.style.lineHeight = '0px'
+    }
+}))
 
 
 

@@ -48,56 +48,22 @@
 
     $len = count($ved_date);
     $j = 0;
+    $temp = 0;
 
-    $sql = "INSERT INTO `kursach`.`vedomost` (`N_zachetki`, `N_semestra`, `id_predmet`, `id_control`, `mark`, `data`, `id_prepod`) VALUES ('$num_zach', '$num_sem', '$ved_idsubject[0]', '$ved_idcontrol[0]', '$ved_mark[0]', '$ved_date[0]', '$ved_idprepod[0]');
-    ";
+    while($j < $len) {
+        $sql = "INSERT INTO `kursach`.`vedomost` (`N_zachetki`, `N_semestra`, `id_predmet`, `id_control`, `mark`, `data`, `id_prepod`) VALUES ('$num_zach', '$num_sem', '$ved_idsubject[$j]', '$ved_idcontrol[$j]', '$ved_mark[$j]', '$ved_date[$j]', '$ved_idprepod[$j]');
+        ";
+        if (mysqli_query($mysql, $sql)) $temp++;
+    }
 
-    if (mysqli_query($mysql, $sql)) {
+    if ($temp == $len) {
         header('Location: http://my-first-project/src/mypage.php');
         $mysql->close();
         exit();
     } else {
-        header('Location: http://my-first-project/src/mypage.php');
+        "Произошла ошибка в запросе";
     }
 
-    
-    // var_dump($num_zach);
-    // var_dump($num_sem);
-    // var_dump($ved_idsubject);
-    // var_dump($ved_mark);
-    // var_dump($ved_idcontrol);
-    // var_dump($ved_prepod);
-    // var_dump($ved_date);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    // $mysql = new mysqli($server, $name, $pass, $db); 
-
-    // $result = mysqli_query($mysql, $sql);
-
-    // if ($result == false) {
-    //     print("Произошла ошибка при выполнении запроса");
-    //     exit();
-    // }
+    $_POST = [];
 
 ?>
