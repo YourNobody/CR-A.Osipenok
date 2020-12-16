@@ -23,7 +23,7 @@ require "tmpsPHP/_head.php";
                 <li><a class="aside__item" href="groups.php">Группы</a></li>
                 <li><a class="aside__item" href="students-btns.php">Студенты</a></li>
                 <?php 
-                if ($_SESSION['access'] === 'admin' || $_SESSION['access'] === 'student') {
+                if ($_SESSION['access'] === 'admin') {
                     echo "<li><a class='aside__item' href='vedomost.php'>Создать ведомость</a>";
                 }
                 ?>
@@ -53,9 +53,6 @@ require "tmpsPHP/_head.php";
             </div>
         </main>
     </div>
-    <?php 
-    require "tmpsPHP/_footer.php";
-?>
 
 </body>
 

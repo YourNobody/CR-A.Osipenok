@@ -48,7 +48,6 @@
 
     $sql = "INSERT INTO `student` (`N_zachetki`, `st_f_name`, `st_l_name`, `st_patronymic`, `kurs`, `id_group`, `id_fac`, `id_spec`) 
             VALUES ('$n_zach', '$f_name', '$l_name', '$p_name', '$curs', '$id_group', '$id_fac', '$id_spec');
-    
     ";
 
     if (mysqli_query($mysql, $sql)) {

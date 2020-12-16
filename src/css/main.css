@@ -422,3 +422,34 @@ td {
     float: right;
     margin: 10px 0 0 0;
 }
+
+.mypage__title {
+    font-weight: 400;
+    font-size: 18px;
+    padding: 0 0 18px;
+}
+
+.mypage__title span {
+    padding: 0 0 0 5px;
+}
+
+.sem__choose {
+    padding: 7px 5px;
+    color: white;
+    max-width: 50%;
+    flex-flow: row;
+}
+
+.sem__choose .mypage__title {
+    padding: 0 0 2px 0;
+}
+
+.sem__choose > li {
+    display: flex;
+    align-items: center;
+}
+
+.sem__choose > li span {
+    padding: 0 4px 0 0;
+}
+

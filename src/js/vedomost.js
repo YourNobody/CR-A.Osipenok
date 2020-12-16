@@ -75,7 +75,7 @@ function moveToCreate(e) {
 
     creatingVedTemplate.insertAdjacentHTML('afterbegin', `
         <h2 style="font-weight: 400;">Студент: <span style="color: rgb(0, 115, 170);">${studFIO.innerText}</span></h2>
-        <h2 style="font-weight: 400;">Номер зачетки: <span style="color: rgb(0, 115, 170);">${numZach.innerText}</span></h2>
+        <h2 style="font-weight: 400;">Номер зачетки: <span data-name="num__zach" style="color: rgb(0, 115, 170);">${numZach.innerText}</span></h2>
     `)
 
     tableVedForm.insertAdjacentHTML('afterbegin', `<input type="text" name="num__zach" value="${numZach.innerText}" hidden/>`)
@@ -84,26 +84,74 @@ function moveToCreate(e) {
     togglePopup(creatingVedBlock, 'show')
 }
 
-
 const addRowVed = document.querySelector('.ved__add-row'),
       addRowVedAllInputs = addRowVed.querySelectorAll('.ved__add-row input'),
       addRowVedBtns = addRowVed.querySelectorAll('.btn')
 
 addRowVedBtns.forEach(btn => btn.addEventListener('click', (e) => addRowToVed(e)))
 
-function addRowToVed(e) {
+
+const vedAllSubjs = document.querySelectorAll('[data-bd="ved-all-subj"] li')
+const vedAllControls = document.querySelectorAll('[data-bd="ved-all-control"] li')
+const vedAllPrepods = document.querySelectorAll('[data-bd="ved-all-prepod"] li')
+const subjs = []
+const controls = []
+const prepods = []
+const vedIdTextField = document.querySelector('[data-to="ved-id"]')
+const vedHoursField = document.querySelector('[data-to="ved-hours"]')
+const vedControlField = document.querySelector('[data-to="ved-control"]')
+const vedTeacherField = document.querySelector('[data-to="ved-teacher"]')
+let numZachTitleText
+
+const si = setInterval(() => {
+   try {
+    numZachTitleText = document.querySelector('[data-name="num__zach"]').innerText
+   } catch (e) {}
+}, (300))
+
+vedAllSubjs.forEach((item) => {
+    let children = item.children
+    subjs.push([[...children].find(i => i.dataset.bd === 'vedid').innerText, [
+        [...children].find(i => i.dataset.bd === 'vedsubj').innerText,
+        [...children].find(i => i.dataset.bd === 'vedhours').innerText,
+        [...children].find(i => i.dataset.bd === 'vedspec').innerText
+    ]])
+})
+
+vedAllControls.forEach((item) => {
+    let children = item.children
+    controls.push([...children].find(i => i.dataset.bd === 'vedcontrol').innerText)
+})
+
+vedAllPrepods.forEach((item) => {
+    let children = item.children
+    prepods.push([...children].find(i => i.dataset.bd === 'vedprepod').innerText)
+})
+
+vedIdTextField.addEventListener('input', (e) => {
+    if (e.target.value.length) {
+        for (let i = 0; i < subjs.length; i++) {
+            if (subjs[i][0] == e.target.value && subjs[i][1][2] == numZachTitleText.substring(2, 5)) {
+                vedHoursField.value = subjs[i][1][1]
+            }
+        }
+    }
+})
+
+function addRowToVed(e) {    
     const { aim } = e.target.dataset
 
     if (aim === 'add') {
         let tr = document.createElement('tr')
         let length = tableTbodyVedForm.children.length
         tr.innerHTML = `<tr>
-            <td data-rec="ved-subject"><input type="text" name="ved__subject-${length + 1}" hidden/></td>
-            <td data-rec="ved-hours"><input type="text" name="ved__hours-${length + 1}" hidden/></td>
-            <td data-rec="ved-control"><input type="text" name="ved__control-${length + 1}" hidden/></td>
-            <td data-rec="ved-mark"><input type="text" name="ved__mark-${length + 1}" hidden/></td>
-            <td data-rec="ved-date"><input type="text" name="ved__date-${length + 1}" hidden/></td>
-            <td data-rec="ved-teacher" ><input type="text" name="ved__teacher-${length + 1}" hidden/></td>
+            <td class="subject__true" data-rec="ved-id">${findTextDeep(subjs, vedIdTextField.value, numZachTitleText.substring(2, 5))}<input type="text" name="ved__subject-${length}" value="${vedIdTextField.value}" hidden/></td>
+            <td data-rec="ved-hours"><input type="text" name="ved__hours-${length}" hidden/></td>
+            <td data-rec="ved-control">${findTextNoDeep(controls, vedControlField.value)}<input type="text" name="ved__control-${length}" value="${vedControlField.value}" hidden/></td>
+            <td data-rec="ved-mark"><input type="text" name="ved__mark-${length}" hidden/></td>
+            <td data-rec="ved-date"><input type="text" name="ved__date-${length}" hidden/></td>
+            <td data-rec="ved-teacher" >${findTextNoDeep(prepods, vedTeacherField.value)}<input type="text" name="ved__teacher-${length}"
+            value="${vedTeacherField.value}" hidden/></td>
         </tr>`
 
         tableTbodyVedForm.append(tr)
@@ -111,7 +159,8 @@ function addRowToVed(e) {
         let tableLastRow = tableTbodyVedForm.children[tableTbodyVedForm.children.length - 1]
         addRowVedAllInputs.forEach(item => {
             [...tableLastRow.children].forEach(td => {
-                if (td.dataset.rec === item.dataset.to) {
+                if (td.dataset.rec === item.dataset.to && td.dataset.rec !== 'ved-id' && td.dataset.rec !== 'ved-control' && 
+                td.dataset.rec !== 'ved-teacher') {
                     td.innerHTML += item.value
                     td.children[0].value = item.value
                 }
@@ -122,3 +171,20 @@ function addRowToVed(e) {
     }
 }
 
+function findTextDeep(arr, id, slic) {
+    for (let i = 0; i < arr.length; i++) {
+        if (subjs[i][0] == id && subjs[i][1][2] == slic) {
+            return subjs[i][1][0]
+        }
+    }
+    return '-'
+}
+
+function findTextNoDeep(arr, id) {
+    for (let i = 0; i < arr.length; i++) {
+        if (i == id) {
+            return arr[i]
+        }
+    }
+    return '-'
+}

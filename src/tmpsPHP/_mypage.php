@@ -27,12 +27,12 @@
 
     while($row = mysqli_fetch_array($result)) {
         echo "
-        <h3 style='font-weight: 400;'>$row[N_zachetki]</h3>
-        <h3 style='font-weight: 400;'>$row[full_fio]</h3>
-        <h3 style='font-weight: 400;'>$row[kurs]</h3>
-        <h3 style='font-weight: 400;'>$row[number_group]</h3>
-        <h3 style='font-weight: 400;'>$row[name_spec]</h3>
-        <h3 style='font-weight: 400;'>$row[name_fac]</h3>
+        <h3 class='mypage__title'>Номер зачетки:<span style='color: rgb(0, 155, 226);'>$row[N_zachetki]</span></h3>
+        <h3 class='mypage__title'>ФИО:<span style='color: rgb(0, 155, 226);'>$row[full_fio]</span></h3>
+        <h3 class='mypage__title'>Курс:<span style='color: rgb(0, 155, 226);'>$row[kurs]</span></h3>
+        <h3 class='mypage__title'>Группа:<span style='color: rgb(0, 155, 226);'>$row[number_group]</span></h3>
+        <h3 class='mypage__title'>Специальность:<span style='color: rgb(0, 155, 226);'>$row[name_spec]</span></h3>
+        <h3 class='mypage__title'>Факультет:<span style='color: rgb(0, 155, 226);'>$row[name_fac]</span></h3>
     ";
     }
 

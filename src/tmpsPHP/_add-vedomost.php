@@ -1,46 +1,103 @@
 <?php 
-    
-    // var_dump($_POST);
-    // var_dump(count($_POST));
-
 
     $server = 'localhost';
     $name = 'kp';
     $pass = 'kp';
     $db = 'kursach';
 
-    $n_zach = $_POST['num__zach'];
-
     $mysql = new mysqli($server, $name, $pass, $db); 
 
-    $sql = 'SELECT predmet.id_predmet, predmet.predmet_name, plan_specialnosti.kolvo_chasov, 
-            type_of_control.type_control,
-            concat(prepod.p_l_name,\' \',left(prepod.p_f_name, 1),\'.\', left(prepod.p_patronymic, 1),\'.\') as fio
-            FROM predmet 
-            INNER JOIN plan_specialnosti ON predmet.id_predmet=plan_specialnosti.id_predmet
-            INNER JOIN vedomost ON predmet.id_predmet=vedomost.id_predmet
-            INNER JOIN type_of_control ON vedomost.id_control=type_of_control.id_control
-            INNER JOIN prepod ON vedomost.id_prepod=prepod.id_prepod
+    $num_zach = intval($_POST['num__zach']);
+    $num_sem = intval($_POST['num__sem']);
+    $ved_idsubject = [];
+    $ved_mark = [];
+    $ved_idcontrol = [];
+    $ved_idprepod = [];
+    $ved_date = [];
 
-            INNER JOIN specialnost ON plan_specialnosti.id_spec=specialnost.id_spec
-            INNER JOIN grups ON specialnost.id_spec=grups.id_spec
-            INNER JOIN student ON grups.id_group=student.id_group
-            where vedomost.N_zachetki
-            group BY predmet.id_predmet;
-    ';
+    $j = 0;
+    while ($_POST["ved__subject-$j"] != NULL) {
+        $ved_idsubject[$j] = intval($_POST["ved__subject-$j"]);
+        $j++;
+    }
+    
 
-    $result = mysqli_query($mysql, $sql);
+    $j = 0;
+    while ($_POST["ved__mark-$j"] != NULL) {
+        $ved_mark[$j] = intval($_POST["ved__mark-$j"]);
+        $j++;
+    }
 
-    if ($result == false) {
-        print("Произошла ошибка при выполнении запроса");
+    $j = 0;
+    while ($_POST["ved__control-$j"] != NULL) {
+        $ved_idcontrol[$j] = intval($_POST["ved__control-$j"]);
+        $j++;
+    }
+
+    $j = 0;
+    while ($_POST["ved__teacher-$j"] != NULL) {
+        $ved_idprepod[$j] = intval($_POST["ved__teacher-$j"]);
+        $j++;
+    }
+
+    $j = 0;
+    while ($_POST["ved__date-$j"] != NULL) {
+        $ved_date[$j] = $_POST["ved__date-$j"];
+        $j++;
+    }
+
+    $len = count($ved_date);
+    $j = 0;
+
+    $sql = "INSERT INTO `kursach`.`vedomost` (`N_zachetki`, `N_semestra`, `id_predmet`, `id_control`, `mark`, `data`, `id_prepod`) VALUES ('$num_zach', '$num_sem', '$ved_idsubject[0]', '$ved_idcontrol[0]', '$ved_mark[0]', '$ved_date[0]', '$ved_idprepod[0]');
+    ";
+
+    if (mysqli_query($mysql, $sql)) {
+        header('Location: http://my-first-project/src/mypage.php');
+        $mysql->close();
         exit();
+    } else {
+        header('Location: http://my-first-project/src/mypage.php');
     }
 
-    echo "<ul>";
-    while ($row = mysqli_fetch_array($result)) {
-        echo "<li>$row[id_predmet] - $row[predmet_name] - $row[kolvo_chasov] - $row[type_control] - $row[fio]</li>";
-    }
-    echo "</ul>";
+    
+    // var_dump($num_zach);
+    // var_dump($num_sem);
+    // var_dump($ved_idsubject);
+    // var_dump($ved_mark);
+    // var_dump($ved_idcontrol);
+    // var_dump($ved_prepod);
+    // var_dump($ved_date);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    // $mysql = new mysqli($server, $name, $pass, $db); 
+
+    // $result = mysqli_query($mysql, $sql);
+
+    // if ($result == false) {
+    //     print("Произошла ошибка при выполнении запроса");
+    //     exit();
+    // }
 
 ?>

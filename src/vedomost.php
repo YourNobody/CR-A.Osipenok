@@ -71,7 +71,7 @@
             <div class="creating__ved hide">
                 <div class="ved__template">
                     <div class="ved__add-row">
-                        <input data-to="ved-subject" placeholder="Дисциплина"/>
+                        <input data-to="ved-id" placeholder="ID дисциплины"/>
                         <input type="text" data-to="ved-hours" placeholder="Часы" readonly/>
                         <input data-to="ved-control" placeholder="Ф-ма к-ля"/>
                         <input data-to="ved-mark" placeholder="Оценка"/>
@@ -103,6 +103,7 @@
                             <th>Преподаватель</th>
                         </thead>
                         <tbody>
+                            <?php require "tmpsPHP/_get-hours.php" ?>
                         </tbody>
                     </table>
                     <button class="ved__btn" type="submit">Создать ведомость</button>
