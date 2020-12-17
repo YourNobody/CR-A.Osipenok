@@ -36,6 +36,7 @@
                 require "tmpsPHP/_mypage.php";
             ?>
 
+            <?php if ($_SESSION['access'] === 'student'): ?>
             <ul class="filters__choose sem__choose">
                 <li>
                     <h3 class="mypage__title">Семестр:</h3>
@@ -81,9 +82,11 @@
                     <label for="sem-8"></label>
                 </li>
             </ul>
+            <?php endif ?>
             <div class="table">
                 <?php 
-                    require "tmpsPHP/_get-vedomost.php";
+                    if ($_SESSION['access'] === 'student') 
+                        require "tmpsPHP/_get-vedomost.php";
                 ?>
             </div>
         </main>

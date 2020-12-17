@@ -1,25 +1,5 @@
-
+(function(){
 'use strict'
-
-const settsTrigger = document.querySelector('.admin__trig'),
-      setts = document.querySelector('.admin__setts'),
-      settsPoints = setts.querySelectorAll('li')
-
-settsTrigger.addEventListener('click', () => toogleAdminSetts())
-settsTrigger.addEventListener('selectstart', () => false)
-settsPoints.forEach(item => item.addEventListener('click', (e) => showThePoint(e)))
-
-function toogleAdminSetts() {
-    if (!setts.classList.contains('hide')) {
-        setts.style.transform = 'translateY(-100%)'
-        setts.style.opacity = '0'
-        toggleElem(setts)
-    } else if (setts.classList.contains('hide')) {
-        toggleElem(setts)
-        setts.style.transform = 'translateY(0)'
-        setts.style.opacity = '1'
-    }
-}
 
 function toggleElem(elem) {
     elem.classList.toggle('hide')
@@ -36,7 +16,6 @@ function showChangeForm(e) {
         tr = tr.parentNode
         if (tr == document.body) break;
     }
-    console.log(tr)
 
     const studFIO = [...tr.children].find(item => item.id === 'stud__fio')
     const grupNUM = [...tr.children].find(item => item.id === 'number__group')
@@ -100,6 +79,7 @@ function showChangeForm(e) {
         })
     }
 }
+})()
 
 
 
