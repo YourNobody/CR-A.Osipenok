@@ -1,6 +1,6 @@
 <?php 
 
-    $n_zach = intval($_POST['num__zuch']);
+    $num_zach = intval($_POST['num__zach']);
     $f_name = $_POST['firstname'];
     $l_name = $_POST['lastname'];
     $p_name = $_POST['patronymic'];
@@ -49,9 +49,10 @@
     $sql = "UPDATE `student`
             SET `st_f_name`='$f_name', `st_l_name`='$l_name', `st_patronymic`='$p_name', `kurs`=$curs, 
                 `id_group`=$id_group, `id_fac`=$id_fac, `id_spec`=$id_spec
-            WHERE `N_zachetki`=$n_zach;";
+            WHERE `N_zachetki`=$num_zach;";
 
     if (mysqli_query($mysql, $sql)) {
+        $_POST = [];
         header('Location: http://my-first-project/src/students-btns.php');
         $mysql->close();
     } else {

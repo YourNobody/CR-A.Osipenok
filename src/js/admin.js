@@ -1,3 +1,4 @@
+(function(){
 'use strict'
 
 const settsTrigger = document.querySelector('.admin__trig'),
@@ -42,6 +43,8 @@ function showChangeForm(e) {
     const cursNUM = [...tr.children].find(item => item.id === 'curs__num')
     const specName = [...tr.children].find(item => item.id === 'name__spec')
     const facName = [...tr.children].find(item => item.id === 'name__fac')
+    const idGroup = +numZach.innerText.substring(2, 5) + 10
+
 
     if (aim === 'adding') {
         document.querySelectorAll('main > div').forEach(item => {
@@ -73,12 +76,6 @@ function showChangeForm(e) {
 
         Array.prototype.forEach.call(tr.children, item => {
             const inp = allFieldsForChange.find(f => {
-                if (f.dataset.ref === 'number__group') {
-                    f.style.backgroundColor = 'rgba(0,255,0,0.2)'
-                    setTimeout(() => {
-                        f.style.backgroundColor = 'transparent'
-                    }, 3000)
-                }
                 if (f.dataset.ref === item.id && f.dataset.ref !== 'number__group') return f
             })
             
@@ -93,11 +90,15 @@ function showChangeForm(e) {
                     if (f.dataset.ref === 'stud__fio' && f.id === 'firstname') f.value = inits[1].trim()
                     if (f.dataset.ref === 'stud__fio' && f.id === 'lastname') f.value = inits[0].trim()
                     if (f.dataset.ref === 'stud__fio' && f.id === 'patronymic') f.value = inits[2].trim()
+                    if (f.dataset.ref === 'number__group') {
+                        f.value = idGroup
+                    }
                 })
             }
         })
     }
 }
+})()
 
 
 

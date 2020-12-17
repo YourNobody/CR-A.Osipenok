@@ -1,3 +1,4 @@
+(function() {
 'use strict'
 
 const pageTrigger = document.querySelector('.personal__photo'),
@@ -33,4 +34,5 @@ function closeMyPage() {
 function toggleElem(elem) {
     elem.classList.toggle('hide')
 }
+})()
 

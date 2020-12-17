@@ -75,6 +75,7 @@
 
     const studFIO = [...tr.children].find(item => item.dataset.id === 'stud__fio')
     const numZach = [...tr.children].find(item => item.dataset.id === 'number__zach')
+    const idGroup = +numZach.innerText.substring(2, 5) + 10
 
     creatingVedTemplate.insertAdjacentHTML('afterbegin', `
         <h2 style="font-weight: 400;">Студент: <span style="color: rgb(0, 115, 170);">${studFIO.innerText}</span></h2>

@@ -1,3 +1,4 @@
+(function(){
 'use strict'
 
 const labels = document.querySelectorAll('.log__in label'),
@@ -38,3 +39,4 @@ function labelOnText(e) {
         label.style.color =  'rgb(75, 75, 75)'
     }
 }
+})()

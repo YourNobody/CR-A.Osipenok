@@ -1,3 +1,4 @@
+(function(){
 'use strict'
 
 let filters,
@@ -142,6 +143,7 @@ facultiesListTitles.forEach(item => item.addEventListener('click', (e) => {
         p.style.lineHeight = '0px'
     }
 }))
+})()
 
 
 

@@ -1,6 +1,6 @@
 <?php
 
-    $n_zach = intval($_POST['num__zuch']);
+    $n_zach = intval($_POST['num__zach']);
     $f_name = $_POST['firstname'];
     $l_name = $_POST['lastname'];
     $p_name = $_POST['patronymic'];

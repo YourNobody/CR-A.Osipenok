@@ -72,7 +72,7 @@
                 <h1 class="title">Добавить студента</h1>
                 <div class="divider"></div>
                 <form action="tmpsPHP/_add.php" method="post" class="change__info_form">
-                    <label for="num__zuch">Номер зачетки: </label><input type="text" id="num__zuch" name="num__zuch"
+                    <label for="num__zuch">Номер зачетки: </label><input type="text" id="num__zach" name="num__zach"
                         placeholder="Введите номер зачетки" />
                     <label for="firstname">Имя: </label><input type="text" id="firstname" name="firstname"
                         placeholder="Введите имя" />
@@ -157,7 +157,7 @@
                 <h1 class="title">Изменить данные о студенте</h1>
                 <div class="divider"></div>
                 <form action="tmpsPHP/_change.php" method="post" class="change__info_form">
-                    <label for="num__zuch">Номер зачетки: </label><input type="text" id="num__zuch" name="num__zuch" data-ref="number__zach"
+                    <label for="num__zuch">Номер зачетки: </label><input type="text" id="num__zach" name="num__zach" data-ref="number__zach"
                         placeholder="Введите номер зачетки" readonly/>
                     <label for="firstname">Имя: </label><input type="text" id="firstname" name="firstname" data-ref="stud__fio"
                         placeholder="Введите имя" />
