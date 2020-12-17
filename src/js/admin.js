@@ -1,4 +1,4 @@
-(function(){
+
 'use strict'
 
 const settsTrigger = document.querySelector('.admin__trig'),
@@ -36,6 +36,7 @@ function showChangeForm(e) {
         tr = tr.parentNode
         if (tr == document.body) break;
     }
+    console.log(tr)
 
     const studFIO = [...tr.children].find(item => item.id === 'stud__fio')
     const grupNUM = [...tr.children].find(item => item.id === 'number__group')
@@ -43,7 +44,8 @@ function showChangeForm(e) {
     const cursNUM = [...tr.children].find(item => item.id === 'curs__num')
     const specName = [...tr.children].find(item => item.id === 'name__spec')
     const facName = [...tr.children].find(item => item.id === 'name__fac')
-    const idGroup = +numZach.innerText.substring(2, 5) + 10
+    let idGroup
+    try {idGroup = +numZach.innerText.substring(2, 5) + 10} catch(e) {}
 
 
     if (aim === 'adding') {
@@ -98,7 +100,6 @@ function showChangeForm(e) {
         })
     }
 }
-})()
 
 
 
