@@ -1,10 +1,6 @@
 (function(){
 'use strict'
 
-function toggleElem(elem) {
-    elem.classList.toggle('hide')
-}
-
 const chBtns = document.querySelectorAll('.ch__img')
 
 chBtns.forEach(item => item.addEventListener('click', (e) => showChangeForm(e)))
@@ -23,8 +19,8 @@ function showChangeForm(e) {
     const cursNUM = [...tr.children].find(item => item.id === 'curs__num')
     const specName = [...tr.children].find(item => item.id === 'name__spec')
     const facName = [...tr.children].find(item => item.id === 'name__fac')
-    let idGroup
-    try {idGroup = +numZach.innerText.substring(2, 5) + 10} catch(e) {}
+    let idGroup = document.querySelector('.idgroup').innerText
+
 
 
     if (aim === 'adding') {

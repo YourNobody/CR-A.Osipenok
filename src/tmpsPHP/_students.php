@@ -5,6 +5,7 @@
     $db = 'kursach';
 
     $n_gr = '';
+    $id_gr = $_POST['id_gr'];
     
     if ($_SESSION['access'] === 'admin') {
         $n_gr = $_POST['n_gr'];
@@ -29,7 +30,9 @@
         exit();
     }
 
-    echo "<table>
+    echo "
+    <div class='hide idgroup'>$id_gr</div>
+    <table>
     <thead>
         <tr>
             <th>Номер зачетки</th>

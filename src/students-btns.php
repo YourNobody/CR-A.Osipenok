@@ -9,7 +9,7 @@
 ?>
 
 <body>
-<?php 
+    <?php 
         require "tmpsPHP/_header.php";
     ?>
     <div class="content">
@@ -38,21 +38,21 @@
             </span></h1>
             <div class="divider"></div>
             <?php if($_SESSION['access'] === 'admin'): ?>
-                <div class="filters" style="margin: 0 0 12px 0;">
-                    <div class="filters__btn filters__set" data-aim="set">Фильтр</div>
-                    <div class="filters__choose">
-                        <div class="filters__btn filters__reset" data-aim="reset">Сбросить</div>
-                        <div class="filters__btn filters__hide" data-aim="hide">Скрыть</div>
-                        <div class="filters__btns">
-                            <div>
-                                <span>По курсу: </span>
-                                <input type="radio" class="radio" data-aim="course" id="filt__course" name="filt__table"/>
-                                <label for="filt__course"></label>
-                            </div>
-                            <input type="text" name="filt__bytext" id="filt__bytext"/>
+            <div class="filters" style="margin: 0 0 12px 0;">
+                <div class="filters__btn filters__set" data-aim="set">Фильтр</div>
+                <div class="filters__choose">
+                    <div class="filters__btn filters__reset" data-aim="reset">Сбросить</div>
+                    <div class="filters__btn filters__hide" data-aim="hide">Скрыть</div>
+                    <div class="filters__btns">
+                        <div>
+                            <span>По курсу: </span>
+                            <input type="radio" class="radio" data-aim="course" id="filt__course" name="filt__table" />
+                            <label for="filt__course"></label>
                         </div>
+                        <input type="text" name="filt__bytext" id="filt__bytext" />
                     </div>
-                </div>    
+                </div>
+            </div>
             <?php endif ?>
             <div class="tb__buttons">
                 <?php 
@@ -153,9 +153,9 @@
         <form method="post" action="tmpsPHP/_delete.php">
         </form>
     </div>
-    <main>
-        </div>
-        <?php 
+    </main>
+    </div>
+    <?php 
     require "tmpsPHP/_footer.php";
 ?>
 </body>
