@@ -158,7 +158,7 @@
                 <div class="divider"></div>
                 <form action="tmpsPHP/_change.php" method="post" class="change__info_form">
                     <label for="num__zuch">Номер зачетки: </label><input type="text" id="num__zach" name="num__zach" data-ref="number__zach"
-                        placeholder="Введите номер зачетки"/>
+                        placeholder="Введите номер зачетки" readonly/>
                     <label for="firstname">Имя: </label><input type="text" id="firstname" name="firstname" data-ref="stud__fio"
                         placeholder="Введите имя" />
                     <label for="lastname">Фамилия: </label><input type="text" id="lastname" name="lastname" data-ref="stud__fio"
