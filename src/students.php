@@ -39,7 +39,7 @@
                 <div class="divider"></div>
                 <div class="filters">
                     <div class="filters__btn filters__set" data-aim="set">Фильтр</div>
-                    <div class="filters__choose hide">
+                    <div class="filters__choose">
                         <div class="filters__btn filters__reset" data-aim="reset">Сбросить</div>
                         <div class="filters__btn filters__hide" data-aim="hide">Скрыть</div>
                         <div class="filters__btns">
@@ -146,7 +146,7 @@
 
             ?>
                     </select>
-                    <button type="submit">Принять</button>
+                    <button type="submit" class="btn">Принять</button>
                 </form>
             </div>
             <div id="deleting__info" class="deleting__info hide">
@@ -231,7 +231,7 @@
 
             ?>
                     </select>
-                    <button type="submit">Изменить</button>
+                    <button type="submit" class="btn">Изменить</button>
                 </form>
         </main>
     </div>

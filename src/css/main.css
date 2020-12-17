@@ -36,6 +36,29 @@ body::-webkit-scrollbar {
     background-color: rgb(248, 248, 248);
 }
 
+.home:hover .home:before {
+
+}
+
+.home:before {
+    animation-name: tb;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes tb {
+    0% {
+        margin-top: 0;
+    }
+    50% {
+        margin-top: 400px;
+    }
+    0% {
+        margin-top: 0;
+    }
+}
+
 .title {
     display: flex;
     justify-content: space-between;
@@ -108,10 +131,9 @@ th {
     padding: 12px 10px;
     font-size: 20px; 
     border: 1px solid rgba(0, 0, 0, 0.5);
-    background-color: rgb(0, 138, 202);
-    color: white;
+    background-color: rgb(0, 167, 245);
+    color: rgb(243, 243, 243);
     font-weight: normal;
-    text-shadow: 0 0 1px black;
 }
 td {
     font-size: 18px;
@@ -178,17 +200,15 @@ td {
     width: 100px;
     height: 30px;
     margin: 10px 0 0 0;
-    background-color: rgb(68, 240, 45);
-    box-shadow: 0 0 10px rgba(68, 240, 45, 0.481);
-    font-size: 18px;
-    line-height: 30px;
-    color: white;
+    background-color: rgba(35, 40, 45, 0.837);
+    color: rgb(228, 228, 228);
+    height: 35px;
     text-align: center;
+    line-height: 35px;
 }
 
 .change__info_form button:hover {
-    background-color: rgb(0, 0, 0);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.481);
+    background-color:  rgb(0, 147, 214);
 }
 
 .groups__btn {
@@ -422,6 +442,7 @@ td {
 }
 
 .btn {
+    display: block;
     width: 10%;
     background-color: rgba(35, 40, 45, 0.837);
     color: rgb(228, 228, 228);
@@ -490,3 +511,16 @@ td {
     padding: 0 4px 0 0;
 }
 
+.change__info_form input {
+    background-color: transparent;
+}
+
+.curs__bd {
+    padding: 20px 0 10px 5px;
+    font-size: 22px;
+}
+
+.curs__bd:first-of-type {
+    padding: 8px 0 10px 5px;
+    font-size: 22px;
+}

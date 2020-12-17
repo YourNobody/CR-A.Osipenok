@@ -17,13 +17,17 @@
     header('Location: ../home.php');
  } else {
 
- $query = "SELECT * FROM `student` WHERE `N_zachetki`=$login AND `N_zachetki`=$_POST[password]";
+ $query = "SELECT student.N_zachetki, grups.number_group 
+           FROM student
+           INNER JOIN grups ON student.id_group=grups.id_group
+           WHERE N_zachetki=$login AND N_zachetki=$_POST[password];";
  
  $result = mysqli_query($link, $query);
 
  $user = mysqli_fetch_assoc($result);
 
  if ($user != false) {
+    $_SESSION['n_gr'] = $user['number_group'];
     $_SESSION['access'] = 'student';
     $_SESSION['n_zach'] = $login;
     header('Location: ../home.php');

@@ -53,17 +53,17 @@
     while($j < $len) {
         $sql = "INSERT INTO `kursach`.`vedomost` (`N_zachetki`, `N_semestra`, `id_predmet`, `id_control`, `mark`, `data`, `id_prepod`) VALUES ('$num_zach', '$num_sem', '$ved_idsubject[$j]', '$ved_idcontrol[$j]', '$ved_mark[$j]', '$ved_date[$j]', '$ved_idprepod[$j]');
         ";
-        if (mysqli_query($mysql, $sql)) $temp++;
+        $j++;
+        if (mysqli_query($mysql, $sql)) {
+            $temp++;
+        }
     }
 
     if ($temp == $len) {
         header('Location: http://my-first-project/src/mypage.php');
         $mysql->close();
-        exit();
     } else {
         "Произошла ошибка в запросе";
     }
-
-    $_POST = [];
 
 ?>

@@ -103,8 +103,10 @@
     const prepods = []
     const vedIdTextField = document.querySelector('[data-to="ved-id"]')
     const vedHoursField = document.querySelector('[data-to="ved-hours"]')
+    const vedDateField = document.querySelector('[data-to="ved-date"]')
     const vedControlField = document.querySelector('[data-to="ved-control"]')
     const vedTeacherField = document.querySelector('[data-to="ved-teacher"]')
+    const vedMarkField = document.querySelector('[data-to="ved-mark"]')
     let numZachTitleText
 
     const si = setInterval(() => {
@@ -133,14 +135,27 @@
     })
 
     vedIdTextField.addEventListener('input', (e) => {
-    if (e.target.value.length) {
-        for (let i = 0; i < subjs.length; i++) {
-            if (subjs[i][0] == e.target.value && subjs[i][1][2] == numZachTitleText.substring(2, 5)) {
-                vedHoursField.value = subjs[i][1][1]
+        if (e.target.value.length) {
+            for (let i = 0; i < subjs.length; i++) {
+                if (subjs[i][0] == e.target.value && subjs[i][1][2] == numZachTitleText.substring(2, 5)) {
+                    vedHoursField.value = subjs[i][1][1]
+                }
             }
         }
-    }
     })
+
+    vedControlField.addEventListener('input', (e) => {
+        if (e.target.value.length && (e.target.value.match(/[^1,2,3]/) || e.target.value.length > 1)) {
+            e.target.value = e.target.value.substring(0, e.target.value.length - 1)
+        }
+    })
+
+    vedMarkField.addEventListener('input', (e) => {
+        if ((+e.target.value > 10 || +e.target.value < 0) || (!e.target.value.match(/[1-9]/) || e.target.value.length > 2)) {
+            e.target.value = e.target.value.substring(0, e.target.value.length - 1)
+        }
+    })
+
 
     function addRowToVed(e) {    
     const { aim } = e.target.dataset
@@ -151,7 +166,7 @@
         tr.innerHTML = `<tr>
             <td class="subject__true" data-rec="ved-id">${findTextDeep(subjs, vedIdTextField.value, numZachTitleText.substring(2, 5))}<input type="text" name="ved__subject-${length}" value="${vedIdTextField.value}" hidden/></td>
             <td data-rec="ved-hours"><input type="text" name="ved__hours-${length}" hidden/></td>
-            <td data-rec="ved-control">${findTextNoDeep(controls, vedControlField.value)}<input type="text" name="ved__control-${length}" value="${vedControlField.value}" hidden/></td>
+            <td data-rec="ved-control">${findTextNoDeep(controls, vedControlField.value - 1)}<input type="text" name="ved__control-${length}" value="${vedControlField.value}" hidden/></td>
             <td data-rec="ved-mark"><input type="text" name="ved__mark-${length}" hidden/></td>
             <td data-rec="ved-date"><input type="text" name="ved__date-${length}" hidden/></td>
             <td data-rec="ved-teacher" >${findTextNoDeep(prepods, vedTeacherField.value)}<input type="text" name="ved__teacher-${length}"

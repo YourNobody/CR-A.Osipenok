@@ -1,38 +1,39 @@
 (function() {
-'use strict'
+    'use strict'
 
-const pageTrigger = document.querySelector('.personal__photo'),
-      mypage = document.querySelector('.mypage'),
-      mypageDialog = mypage.querySelector('.mypage__dialog')
+    let allRadioBtns = document.querySelectorAll('.filters__choose li input'),
+        allSemTables
 
-pageTrigger.addEventListener('click', () => showMyPage())
-mypage.addEventListener('click', (e) => {
-    e.target == mypage && closeMyPage()
-})
+    allRadioBtns.forEach(rd => rd.addEventListener('click', e => showRelativeTable(e)))
 
-function showMyPage() {
-    toggleElem(mypage)
-    mypage.style.animation = 'page_bg'
-    mypage.style.animationDuration = '0.5s'
 
-    mypageDialog.style.animation = 'page'
-    mypageDialog.style.animationDuration = '0.5s'
-    mypage.style.transform = 'translate(0)'
+    function showRelativeTable(e) {
+        let li = e.target
+        while (li.tagName != 'LI') {
+            li = li.parentNode
+            if (li == document.budy) break;
+        }
 
-    mypageDialog.style.transform = 'rotate3d(0, 0, 0, 0)'
-    mypageDialog.style.opacity = '1'
-}
+        allSemTables = document.querySelectorAll('.mypage__table')
+        allSemTables.forEach(tb => {
+            tb.querySelector('tbody [data-aim="temp"]') && tb.querySelector('tbody [data-aim="temp"]').remove()
+            tb.classList.add('hide')
+            if (tb.dataset.name == 'table__' + e.target.dataset.aim) {
+                if (tb.querySelector('tbody').children.length) {
+                    tb.classList.remove('hide')
+                } else {
+                    tb.classList.remove('hide')
+                    let tr = document.createElement('tr')
+                    tr.innerHTML = '<td data-aim="temp" colspan="6">По данному семестру ведомость пуста</td>'
+                    tb.querySelector('tbody').append(tr)
+                }
+            }
+        })
+    }
 
-function closeMyPage() {
-    mypage.style.transform = 'translate(100%)'
 
-    mypageDialog.style.transform = 'rotate3d(250, -130, 50, 90deg)'
-    mypageDialog.style.opacity = '0'
 
-    mypage.onanimationend = () => toggleElem(mypage)
-}
-function toggleElem(elem) {
-    elem.classList.toggle('hide')
-}
+
+
 })()
 

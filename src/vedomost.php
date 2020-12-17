@@ -35,7 +35,6 @@
             <div class="divider"></div>
             <div class="ved__btns">
                 <div class="ved__btn" data-aim="create-ved">Создать</div>
-                <div class="ved__btn" data-aim="change-ved">Изменить</div>
             </div>
             <div class="search__create-ved hide">
                 <div class="create__ved">
@@ -111,6 +110,7 @@
             </div>
         </main>
     </div>
+    <script defer src="js/vedomost.js"></script>
 <?php 
     require "tmpsPHP/_footer.php";
 ?>

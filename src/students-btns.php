@@ -32,15 +32,36 @@
         <main class="main">
             <div class="students" id="students">
                 <h1 class="title"><span>Студенты <?php
-                if($_SESSION === 'admin') echo "<div data-aim='adding' style='top: 6px;' class='ch__img'><img data-aim='adding' src='icons/add.svg' id='change-stud'>";
+                if($_SESSION['access'] === 'admin') echo "<div data-aim='adding' style='top: 6px;' class='ch__img'><img data-aim='adding' src='icons/add.svg' id='change-stud'>";
                 ?>
             </div>
             </span></h1>
             <div class="divider"></div>
+            <?php if($_SESSION['access'] === 'admin'): ?>
+                <div class="filters" style="margin: 0 0 12px 0;">
+                    <div class="filters__btn filters__set" data-aim="set">Фильтр</div>
+                    <div class="filters__choose">
+                        <div class="filters__btn filters__reset" data-aim="reset">Сбросить</div>
+                        <div class="filters__btn filters__hide" data-aim="hide">Скрыть</div>
+                        <div class="filters__btns">
+                            <div>
+                                <span>По курсу: </span>
+                                <input type="radio" class="radio" data-aim="course" id="filt__course" name="filt__table"/>
+                                <label for="filt__course"></label>
+                            </div>
+                            <input type="text" name="filt__bytext" id="filt__bytext"/>
+                        </div>
+                    </div>
+                </div>    
+            <?php endif ?>
             <div class="tb__buttons">
                 <?php 
-                    if ($_SESSION['access'] === 'student' || $_SESSION['access'] === 'admin') {
+                    if ($_SESSION['access'] === 'admin') {
                         require "tmpsPHP/_studentsList.php";
+                    } else if($_SESSION['access'] === 'student') {
+                        echo "<p>Перейти к списку своей группы<p>";
+                        echo "<a href='students.php' style='margin: 7px 0 0 0;' class='btn'>Перейти</a>";
+                        
                     } else {
                         echo "<p style='font-size: 19px;'>Для просмотра списка студентов сначала нужно <a href='log-in.php'>авторизироватьcя</a> как студент или как работник учебной части университета</p>";
                     }

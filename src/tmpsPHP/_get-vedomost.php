@@ -27,17 +27,12 @@
 
         $result = mysqli_query($mysql, $sql);
 
-        if ($result->num_rows == 0 || $result->num_rows == NULL) {
-            $i++;
-            continue;
-        }
-
         if ($result == false) {
             print "Произошла ошибка при запросе";
         }
 
         echo "
-        <table data-id='table__sem-$i'>
+        <table class='mypage__table hide' data-name='table__sem-$i' data-id='$i'>
             <thead>
                 <th>Дисциплина</th>
                 <th style='width:50px'>Часы</th>
