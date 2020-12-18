@@ -26,7 +26,7 @@ $_SESSION['access'] = 'guest';
                 <button type="submit">Войти</button>
             </form>
             <a class="guest" href="home.php">Войти как гость</a>
-            <p class="forget">&#149; Забыли <a href="_help.php">Логин/Пароль</a>?</p>
+            <p class="forget">&#149; Забыли <a href="tmpsPHP/_help.php">Логин/Пароль</a>?</p>
         </div>
     </div>
 

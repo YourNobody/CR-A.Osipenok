@@ -21,11 +21,11 @@
     }
 
     while($row = mysqli_fetch_array($result)) {
-        echo "<form action='./students.php' method='post' style='display:inline-block;'>
+        echo "<form action='./students.php' method='post' class='formlist' style='display:inline-block;'>
             <input type='hidden' name='n_gr'value='$row[number_group]'>
             <input type='hidden' name='id_gr'value='$row[id_group]'>
             <button class='groups__btn'>$row[number_group]($row[name_spec])</button>
-        </form>                      ";
+        </form>";
     }
 
     $mysql->close();

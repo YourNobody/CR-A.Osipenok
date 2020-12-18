@@ -37,28 +37,13 @@
                 if($_SESSION['access'] == 'admin') echo "<div data-aim='adding' style='top: 6px;' class='ch__img'><img data-aim='adding' src='icons/add.svg' id='change-stud'></div>";?>
                     </span></h1>
                 <div class="divider"></div>
-                <div class="filters">
+                <div class="filters filters__students">
                     <div class="filters__btn filters__set" data-aim="set">Фильтр</div>
                     <div class="filters__choose">
                         <div class="filters__btn filters__reset" data-aim="reset">Сбросить</div>
                         <div class="filters__btn filters__hide" data-aim="hide">Скрыть</div>
                         <div class="filters__btns">
-                            <div>
-                                <span>По курсу: </span>
-                                <input type="radio" class="radio" data-aim="course" id="filt__course" name="filt__table"/>
-                                <label for="filt__course"></label>
-                            </div>
-                            <div>
-                                <span>По специльностям: </span>
-                                <input type="radio" class="radio" data-aim="spec" id="filt__spec" name="filt__table"/>
-                                <label for="filt__spec"></label>
-                            </div>
-                            <div>
-                                <span>По факультетам: </span>
-                                <input type="radio" class="radio" data-aim="fac" id="filt__fac" name="filt__table"/>
-                                <label for="filt__fac"></label>
-                            </div>
-                            <input type="text" name="filt__bytext" id="filt__bytext"/>
+                            <input type="text" name="filt__bytext" id="filt__bytext"  placeholder="Введите информацию о студенте"/>
                         </div>
                     </div>
                 </div>

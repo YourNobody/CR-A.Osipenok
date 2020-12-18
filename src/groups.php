@@ -40,22 +40,7 @@
                         <div class="filters__btn filters__reset" data-aim="reset">Сбросить</div>
                         <div class="filters__btn filters__hide" data-aim="hide">Скрыть</div>
                         <div class="filters__btns">
-                            <div class="radio__course">
-                                <span>По курсу: </span>
-                                <input type="radio" class="radio" data-aim="course" id="filt__course" name="filt__table"/>
-                                <label for="filt__course"></label>
-                            </div>
-                            <div class="radio__spec">
-                                <span>По специльностям: </span>
-                                <input type="radio" class="radio" data-aim="spec" id="filt__spec" name="filt__table"/>
-                                <label for="filt__spec"></label>
-                            </div>
-                            <div class="radio__fac">
-                                <span>По факультетам: </span>
-                                <input type="radio" class="radio" data-aim="fac" id="filt__fac" name="filt__table"/>
-                                <label for="filt__fac"></label>
-                            </div>
-                            <input type="text" name="filt__bytext" id="filt__bytext"/>
+                            <input type="text" name="filt__bytext" id="filt__bytext" placeholder="Введите информацию о группе"/>
                         </div>
                     </div>
                 </div>

@@ -29,7 +29,7 @@
                 <td id='number_group'>$row[number_group]</td>
                 <td id='name_spec'>$row[name_spec]</td>
                 <td id='name_fac'>$row[name_fac]</td>
-                <td data-to=\"show-in-window\">Открыть</td>
+                <td data-to=\"show-in-window\"><a href='http://my-first-project/src/students-btns.php'>Открыть</a></td>
             </tr>
             ";
         }

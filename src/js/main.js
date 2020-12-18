@@ -6,69 +6,25 @@ let filters,
       filtersRadioBtns,
       filtersTextField,
       table,
-      tableTbody ,
+      tableTbody,
       tableRows,
       filtersMain
 
 try {
     filters = document.querySelector('.filters'),
     filtersBtns = filters.querySelectorAll('.filters__btn'),
-    filtersRadioBtns = filters.querySelectorAll('.filters__btns input [type="radio"]'),
+    filtersRadioBtns = filters.querySelectorAll('.filters__btns .radio'),
     filtersTextField = filters.querySelector('#filt__bytext'),
     table = document.querySelector('.table'),
     tableTbody = table.querySelector('tbody'),
     tableRows = table.querySelectorAll('tbody tr'),
     filtersMain = filters.querySelector('.filters__choose')
-
     filtersRadioBtns.forEach(item => item.addEventListener('input', () => checkRadioFilters(filtersRadioBtns)))
     filtersTextField.addEventListener('input', e => filterByText(e))
 
     filtersBtns.forEach(item => item.addEventListener('click', e => filtersBtnsDoing(e)))
 } catch (error) {}
     
-
-function checkRadioFilters(inputs) {
-    const uniqFac = new Set()
-    const uniqSpec = new Set()
-    const uniqGroup = new Set()
-    const uniqFio = new Set()
-
-    tableRows.forEach(item => {
-        [...item.children].forEach(i => {
-            if (i.id && i.id === 'name__fac') uniqFac.add(i.innerText)
-            if (i.id && i.id === 'name__spec') uniqSpec.add(i.innerText)
-            if (i.id && i.id === 'number__group') uniqGroup.add(i.innerText)
-            if (i.id && i.id === 'stud__fio') uniqFio.add(i.innerText)
-        })
-    })
-
-    console.log(uniqFio)
-
-    const arrFio = Array.from(uniqFio)
-    arrFio.sort()
-
-    console.log(arrFio)
-
-    const tbody = document.createElement('tbody')
-
-    let count = false
-    arrFio.forEach(item => {
-        count = false
-        for (let i = 0; i < tableRows.length; i++) {
-            for (let j = 0; j < tableRows[i].children.length; j++) {
-                if (tableRows[i].children[j].innerText === item) {
-                    tbody.append(tableRows[i])
-                    count = true
-                    break
-                }
-            }
-            if (count) break
-        }
-    })
-    console.log(tbody)
-    Array.prototype.forEach.call(tbody.children, item => tableTbody.append(item))
-}
-
 function filterByText(e) {
     let count = 0
     if (e.target.value.length) {
@@ -143,6 +99,7 @@ facultiesListTitles.forEach(item => item.addEventListener('click', (e) => {
         p.style.lineHeight = '0px'
     }
 }))
+
 })()
 
 

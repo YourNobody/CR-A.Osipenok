@@ -8,6 +8,6 @@
 </head>
 <body>
     <h2>Забыли имя или пароль?</h2>
-    <h3>Обратитесь в техподдержку <a href="https://www.bsuir.by/ru/informatsiya-o-rabote-s-sistemoy-edinoy-tekhnicheskoy-podderzhki">ИИС БГУИР</a></h3>
+    <h3>Обратитесь в техподдержку <a href="#">ИИС БГУИР</a></h3>
 </body>
 </html>

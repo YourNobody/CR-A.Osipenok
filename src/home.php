@@ -32,7 +32,7 @@
         <main class="main">
             <div class="home">
                 <div class="divider"></div>
-                <h1 class="title">Добро пожаловать в ИИС №2</h1>
+                <h1 class="title">Добро пожаловать в ИИС kind of №2</h1>
                 <div class="divider"></div>
             </div>
         </main>
